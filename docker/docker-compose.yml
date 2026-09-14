@@ -1,0 +1,152 @@
+# One command to a running fine-tuned customer-support model.
+#
+#   docker compose -f docker/docker-compose.yml up          # fine-tuned model only
+#
+#   # base + tuned side by side, with the API and the comparison UI:
+#   MODEL=ibm-granite/granite-3.3-2b-instruct \
+#   ADAPTER=drstupidity/granite-3.3-2b-customer-support-lora \
+#     docker compose -f docker/docker-compose.yml --profile ui up
+#
+# MODEL IS NOT OPTIONAL IN THE SECOND FORM. It defaults to the *merged* fine-tune, so setting
+# only ADAPTER serves the fine-tune under the name "base" and the adapter on top of itself as
+# "csbot" -- two fine-tunes, silently, with the comparison UI labelling one of them "Base model".
+#
+# Brings up vLLM with the merged fine-tuned weights on :8001. Add `--profile api` to also start
+# the FastAPI layer on :8000, which applies the trained prompt template and the NeMo guardrails.
+#
+# HOST PREREQUISITE: the NVIDIA Container Toolkit, not just the driver. Without it every `up`
+# fails with `could not select device driver "nvidia" with capabilities: [[gpu]]`. Install and
+# verification steps for Fedora/RHEL and Debian/Ubuntu are in the README; on SELinux-enforcing
+# hosts `sudo setsebool -P container_use_devices 1` is also required.
+#
+# COLD START: :8501 REFUSES CONNECTIONS FOR THE FIRST ~90 SECONDS. That is the dependency gate,
+# not a failure. `ui` waits for `api` to report healthy, and `api` spends that time fetching the
+# tokenizer and building the guardrail embedding index; vLLM is usually healthy well before it.
+# Watch it with:  docker compose -f docker/docker-compose.yml --profile ui ps
+# The gate is deliberate: started early, the UI cannot fetch the trained system prompt, and a
+# comparison run without it is misleading rather than merely degraded.
+#
+# WHY TWO SERVICES. vLLM alone is enough to hit the model, and `vllm` is the default so a
+# reviewer gets a working endpoint with no extra steps. The `api` service exists because vLLM's
+# chat endpoint applies the tokenizer's chat template, which is correct ONLY if the caller also
+# supplies the system prompt the model was trained with (see README, and /model-info on the api
+# service, which prints the exact rendered prompt). The api service removes that footgun and adds
+# the guardrail layer.
+
+services:
+  vllm:
+    image: vllm/vllm-openai:${VLLM_TAG:-latest}
+    # One service, two shapes, chosen by whether ADAPTER is set:
+    #
+    #   MODEL=<merged repo>                    -> serves the fine-tune alone as "csbot"
+    #   MODEL=<base repo> ADAPTER=<lora repo>  -> serves BOTH, as "base" and "csbot"
+    #
+    # The second is what the comparison UI needs. Two 4.8 GB servers do not fit on an 8 GB card,
+    # and loading them in sequence doubles the wall clock, so vLLM holds the base weights once
+    # and swaps the adapter per request.
+    entrypoint: ["/bin/sh", "-c"]
+    # A literal block (|) with explicit backslash continuations, NOT a folded block (>).
+    # YAML folding preserves newlines on more-indented lines, so a folded block turns each
+    # "--flag value" line into its own shell command and vLLM starts with no flags at all --
+    # which is exactly what happened here before it was tested.
+    command:
+      - |
+        set -e
+        COMMON="--port 8001 --dtype $${DTYPE} --max-model-len $${MAX_MODEL_LEN} \
+                --gpu-memory-utilization $${GPU_UTIL} --max-num-seqs $${MAX_SEQS}"
+        if [ -n "$${ADAPTER}" ]; then
+          echo "serving base + adapter as 'base' and 'csbot'"
+          exec vllm serve "$${MODEL}" --served-model-name base \
+               --enable-lora --lora-modules "csbot=$${ADAPTER}" --max-lora-rank 16 $$COMMON
+        else
+          echo "serving merged weights as 'csbot'"
+          exec vllm serve "$${MODEL}" --served-model-name csbot $$COMMON
+        fi
+    ports: ["8001:8001"]
+    volumes:
+      # Cache weights on the host so a restart does not re-download ~4.8 GB.
+      - ${HF_CACHE:-~/.cache/huggingface}:/root/.cache/huggingface
+    environment:
+      MODEL: ${MODEL:-drstupidity/granite-3.3-2b-customer-support}
+      ADAPTER: ${ADAPTER:-}
+      # Tuned on an 8 GB RTX 5060. 1280 covers the measured p99 prompt (640 tokens) plus 512
+      # generated; reserving 2048 per request cost two thirds of the KV cache and dropped
+      # concurrency from 19x to 3.6x.
+      # bfloat16 needs compute capability >= 8.0 (Ampere: A100, A10, RTX 30xx/40xx/50xx, L4, H100).
+      # On Turing (T4, RTX 20xx, cc 7.5) or Volta (V100, cc 7.0) vLLM refuses to start -- the
+      # weights are stored bfloat16, but the hardware cannot run it. Set DTYPE=float16 there.
+      # Check yours with: nvidia-smi --query-gpu=name,compute_cap --format=csv
+      DTYPE: ${DTYPE:-bfloat16}
+      # The three below are tuned for an 8 GB card and are the limits, not requirements -- a
+      # larger GPU can raise MAX_MODEL_LEN and MAX_SEQS for more context and concurrency.
+      MAX_MODEL_LEN: ${MAX_MODEL_LEN:-1280}
+      GPU_UTIL: ${GPU_UTIL:-0.92}
+      MAX_SEQS: ${MAX_SEQS:-32}
+      HUGGING_FACE_HUB_TOKEN: ${HUGGING_FACE_HUB_TOKEN:-}
+    ipc: host          # vLLM needs a large /dev/shm
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    healthcheck:
+      test: ["CMD-SHELL", "python3 -c \"import urllib.request;urllib.request.urlopen('http://localhost:8001/v1/models')\""]
+      interval: 15s
+      timeout: 5s
+      retries: 40
+      start_period: 180s   # first start compiles CUDA graphs; ~4 min cold, ~1 min warm
+
+  api:
+    # Also enabled by `--profile ui`: the UI fetches the trained system prompt from /model-info,
+    # and without it both columns answer a bare user turn. That is not the configuration the
+    # model was evaluated in, and it is not neutral -- measured on the demo prompt it shortens
+    # the base answer from 693 to 260 characters and removes the fine-tune's opener tic, i.e. it
+    # silently flatters the fine-tune. The UI now refuses to start rather than fall back to it.
+    profiles: ["api", "ui"]
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.api
+    depends_on:
+      vllm:
+        condition: service_healthy
+    ports: ["8000:8000"]
+    environment:
+      CSBOT_ENGINE: proxy
+      CSBOT_PROXY_URL: http://vllm:8001
+      # Required whenever vLLM serves more than one model, which is exactly the `--profile ui`
+      # case (base + csbot). The proxy refuses to guess -- it used to take data[0], which is
+      # "base", so the API silently served the UNTUNED model. Without this the api container
+      # exits 3 on startup and the UI cannot fetch the trained system prompt.
+      CSBOT_PROXY_MODEL: ${CSBOT_PROXY_MODEL:-csbot}
+      CSBOT_MODEL_KEY: granite-3.3-2b
+      CSBOT_MERGED_DIR: ""
+      CSBOT_GUARDRAILS: ${CSBOT_GUARDRAILS:-1}
+      HF_HOME: /root/.cache/huggingface
+    volumes:
+      - ${HF_CACHE:-~/.cache/huggingface}:/root/.cache/huggingface
+    healthcheck:
+      # ~80s to ready on a cold start: it fetches the tokenizer and builds the guardrail
+      # embedding index. The UI waits on this, otherwise it renders its "cannot reach the API"
+      # error for the first minute of every cold start and reads as broken.
+      test: ["CMD-SHELL", "python3 -c \"import urllib.request;urllib.request.urlopen('http://localhost:8000/health')\""]
+      interval: 10s
+      timeout: 5s
+      retries: 30
+      start_period: 150s
+
+  ui:
+    profiles: ["ui"]
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.ui
+    depends_on:
+      vllm:
+        condition: service_healthy
+      api:
+        condition: service_healthy
+    ports: ["8501:8501"]
+    environment:
+      CSBOT_VLLM_URL: http://vllm:8001
+      CSBOT_API_URL: http://api:8000

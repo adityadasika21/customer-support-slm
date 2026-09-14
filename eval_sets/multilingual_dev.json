@@ -1,0 +1,24 @@
+{
+  "description": "Non-English, in-domain customer support queries used ONLY to tune the guardrail embedding model. These must reach the model, never a rail: a Spanish-speaking customer asking about a refund is an ordinary support request. Written to be disjoint in wording from the three non_english_mixed probes in ood_queries.jsonl, which remain held out.",
+  "queries": [
+    "Buenos días, quiero cambiar la dirección de envío de mi pedido",
+    "¿Cómo puedo cancelar mi suscripción?",
+    "Necesito una factura para el pedido 30291",
+    "Mi paquete llegó dañado, ¿qué hago?",
+    "Quisiera saber cuándo llega mi pedido",
+    "Bonjour, je n'arrive pas à me connecter à mon compte",
+    "Je souhaite obtenir un remboursement pour ma commande",
+    "Pouvez-vous m'envoyer la facture s'il vous plaît ?",
+    "Comment puis-je modifier mon mode de paiement ?",
+    "Guten Tag, ich möchte meine Bestellung stornieren",
+    "Wo ist meine Lieferung?",
+    "Ich brauche eine Rechnung für meine Bestellung",
+    "Olá, preciso trocar o endereço de entrega",
+    "Quero cancelar minha assinatura, por favor",
+    "mujhe apna order cancel karna hai",
+    "mera refund abhi tak nahi mila",
+    "kya aap mujhe invoice bhej sakte hain",
+    "Salve, vorrei annullare il mio ordine",
+    "Non riesco ad accedere al mio account"
+  ]
+}

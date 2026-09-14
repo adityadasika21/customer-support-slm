@@ -1,0 +1,78 @@
+# data & artifacts (large, regenerable)
+data/
+artifacts/
+runs/
+*.csv
+*.jsonl
+!reports/**/*.jsonl
+
+# python
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ipynb_checkpoints/
+
+# secrets
+.env
+
+# keep the hand-written eval set and generated reports under version control
+!eval_sets/
+
+# Evidence belongs in the repo. The report cites these numbers, so the tables they came from
+# have to ship with it -- a claim whose supporting file is gitignored is not reproducible.
+!reports/**/*.csv
+
+# ...but not the fitted intent classifiers. They are 11 MB each, they are pickles (loading one
+# executes code, which is a poor thing to ship in a repo other people will run), and they are
+# fully deterministic: fit_intent_classifier is seeded and the evaluation refits automatically
+# when the file is absent. Nothing is lost by regenerating them.
+reports/**/*.joblib
+!eval_sets/**
+
+# stray bytecode
+__pycache__/
+
+# working notes, not part of the submission
+docs/
+
+# reference PDFs kept locally
+*.pdf
+
+# superseded training configs; only the shipped one is published
+configs/final.yaml
+configs/final-guardrail.yaml
+configs/final-grounded.yaml
+configs/pilot-guardrail.yaml
+
+# exploratory tooling and superseded artefacts, kept locally, not published
+scripts/eda_report.py
+scripts/plot_curves.py
+scripts/prefetch_models.py
+scripts/funnel_*.py
+scripts/run_pilots.py
+scripts/select_winner.py
+scripts/compare_runs.py
+scripts/compare_live.py
+scripts/rescore.py
+scripts/build_calibration_set.py
+scripts/score_calibration.py
+scripts/tune_threshold.py
+scripts/tune_rails_threshold.py
+scripts/README.md
+docker/README.md
+configs/pilot.yaml
+reports/eval/*
+!reports/eval/rails_threshold.json
+reports/eval_grounded/
+reports/eval_chain/
+reports/funnel/
+reports/pilots/
+reports/ablation/
+reports/figures/
+reports/*.md
+reports/flags.csv
+reports/placeholders.csv
+eval_sets/calibration/
+eval_sets/judge_shipped/
+eval_sets/judge_g_vs_p/

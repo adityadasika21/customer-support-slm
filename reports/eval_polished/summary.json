@@ -1,0 +1,1944 @@
+{
+  "test_all": {
+    "slice": "test_all",
+    "n": 2370,
+    "base": "ibm-granite/granite-3.3-2b-instruct (base)",
+    "tuned": "final-polished",
+    "intent_clf_ceiling": 0.9974417282546901,
+    "metrics": {
+      "entity_recall": {
+        "base": 0.6140350877192983,
+        "tuned": 0.7418546365914787,
+        "base_ci": {
+          "mean": 0.6140350877192983,
+          "lo": 0.5664160401002506,
+          "hi": 0.6604323308270672,
+          "n": 399
+        },
+        "tuned_ci": {
+          "mean": 0.7418546365914787,
+          "lo": 0.6992481203007519,
+          "hi": 0.7832080200501254,
+          "n": 399
+        },
+        "diff": 0.1278195488721804,
+        "ci": [
+          0.07268170426065163,
+          0.18295739348370926
+        ],
+        "p_value": 0.0,
+        "significant": true,
+        "higher_is_better": true,
+        "win_tie_loss": {
+          "win": 93,
+          "tie": 265,
+          "loss": 41,
+          "n": 399
+        }
+      },
+      "entity_clean": {
+        "base": 0.9704641350210971,
+        "tuned": 0.979746835443038,
+        "base_ci": {
+          "mean": 0.9704641350210971,
+          "lo": 0.9637130801687763,
+          "hi": 0.9772151898734177,
+          "n": 2370
+        },
+        "tuned_ci": {
+          "mean": 0.979746835443038,
+          "lo": 0.9738396624472574,
+          "hi": 0.9852320675105485,
+          "n": 2370
+        },
+        "diff": 0.009282700421940904,
+        "ci": [
+          0.0012658227848101266,
+          0.01729957805907173
+        ],
+        "p_value": 0.028,
+        "significant": true,
+        "higher_is_better": true,
+        "win_tie_loss": {
+          "win": 58,
+          "tie": 2276,
+          "loss": 36,
+          "n": 2370
+        }
+      },
+      "hygiene_clean": {
+        "base": 0.39704641350210973,
+        "tuned": 0.9835443037974684,
+        "base_ci": {
+          "mean": 0.39704641350210973,
+          "lo": 0.377626582278481,
+          "hi": 0.41729957805907175,
+          "n": 2370
+        },
+        "tuned_ci": {
+          "mean": 0.9835443037974684,
+          "lo": 0.9780590717299578,
+          "hi": 0.9886075949367089,
+          "n": 2370
+        },
+        "diff": 0.5864978902953586,
+        "ci": [
+          0.5658227848101266,
+          0.6063291139240506
+        ],
+        "p_value": 0.0,
+        "significant": true,
+        "higher_is_better": true,
+        "win_tie_loss": {
+          "win": 1397,
+          "tie": 966,
+          "loss": 7,
+          "n": 2370
+        }
+      },
+      "intent_correct": {
+        "base": 0.7556962025316456,
+        "tuned": 0.8928270042194093,
+        "base_ci": {
+          "mean": 0.7556962025316456,
+          "lo": 0.7383966244725738,
+          "hi": 0.7729957805907173,
+          "n": 2370
+        },
+        "tuned_ci": {
+          "mean": 0.8928270042194093,
+          "lo": 0.880168776371308,
+          "hi": 0.9050632911392406,
+          "n": 2370
+        },
+        "diff": 0.1371308016877637,
+        "ci": [
+          0.11940928270042193,
+          0.1548523206751055
+        ],
+        "p_value": 0.0,
+        "significant": true,
+        "higher_is_better": true,
+        "win_tie_loss": {
+          "win": 419,
+          "tie": 1857,
+          "loss": 94,
+          "n": 2370
+        }
+      },
+      "rouge_l": {
+        "base": 0.21420180022671104,
+        "tuned": 0.3787552321711473,
+        "base_ci": {
+          "mean": 0.21420180022671104,
+          "lo": 0.2119647715879184,
+          "hi": 0.2164115730090007,
+          "n": 2370
+        },
+        "tuned_ci": {
+          "mean": 0.3787552321711473,
+          "lo": 0.37359902985097376,
+          "hi": 0.38383032975764064,
+          "n": 2370
+        },
+        "diff": 0.16455343194443628,
+        "ci": [
+          0.15962783611302248,
+          0.16953337758883422
+        ],
+        "p_value": 0.0,
+        "significant": true,
+        "higher_is_better": true,
+        "win_tie_loss": {
+          "win": 2211,
+          "tie": 0,
+          "loss": 159,
+          "n": 2370
+        }
+      },
+      "think_leakage": {
+        "base": 0.0,
+        "tuned": 0.0,
+        "base_ci": {
+          "mean": 0.0,
+          "lo": 0.0,
+          "hi": 0.0,
+          "n": 2370
+        },
+        "tuned_ci": {
+          "mean": 0.0,
+          "lo": 0.0,
+          "hi": 0.0,
+          "n": 2370
+        },
+        "diff": 0.0,
+        "ci": [
+          0.0,
+          0.0
+        ],
+        "p_value": 1.0,
+        "significant": false,
+        "higher_is_better": false,
+        "win_tie_loss": {
+          "win": 0,
+          "tie": 2370,
+          "loss": 0,
+          "n": 2370
+        }
+      },
+      "refusal": {
+        "base": 0.5628691983122363,
+        "tuned": 0.010548523206751054,
+        "base_ci": {
+          "mean": 0.5628691983122363,
+          "lo": 0.5426160337552742,
+          "hi": 0.5827004219409283,
+          "n": 2370
+        },
+        "tuned_ci": {
+          "mean": 0.010548523206751054,
+          "lo": 0.006751054852320675,
+          "hi": 0.014767932489451477,
+          "n": 2370
+        },
+        "diff": -0.5523206751054852,
+        "ci": [
+          -0.5725738396624472,
+          -0.5316455696202531
+        ],
+        "p_value": 0.0,
+        "significant": true,
+        "higher_is_better": false,
+        "win_tie_loss": {
+          "win": 5,
+          "tie": 1051,
+          "loss": 1314,
+          "n": 2370
+        }
+      },
+      "boilerplate": {
+        "base": 0.0,
+        "tuned": 0.0,
+        "base_ci": {
+          "mean": 0.0,
+          "lo": 0.0,
+          "hi": 0.0,
+          "n": 2370
+        },
+        "tuned_ci": {
+          "mean": 0.0,
+          "lo": 0.0,
+          "hi": 0.0,
+          "n": 2370
+        },
+        "diff": 0.0,
+        "ci": [
+          0.0,
+          0.0
+        ],
+        "p_value": 1.0,
+        "significant": false,
+        "higher_is_better": false,
+        "win_tie_loss": {
+          "win": 0,
+          "tie": 2370,
+          "loss": 0,
+          "n": 2370
+        }
+      },
+      "truncated": {
+        "base": 0.04050632911392405,
+        "tuned": 0.0,
+        "base_ci": {
+          "mean": 0.04050632911392405,
+          "lo": 0.032489451476793246,
+          "hi": 0.04852320675105485,
+          "n": 2370
+        },
+        "tuned_ci": {
+          "mean": 0.0,
+          "lo": 0.0,
+          "hi": 0.0,
+          "n": 2370
+        },
+        "diff": -0.04050632911392405,
+        "ci": [
+          -0.04852320675105485,
+          -0.032489451476793246
+        ],
+        "p_value": 0.0,
+        "significant": true,
+        "higher_is_better": false,
+        "win_tie_loss": {
+          "win": 0,
+          "tie": 2274,
+          "loss": 96,
+          "n": 2370
+        }
+      },
+      "repetition_rate": {
+        "base": 0.0016231014978492996,
+        "tuned": 0.0031860198440171496,
+        "base_ci": {
+          "mean": 0.0016231014978492996,
+          "lo": 0.0014024525690205332,
+          "hi": 0.0018549280790160164,
+          "n": 2370
+        },
+        "tuned_ci": {
+          "mean": 0.0031860198440171496,
+          "lo": 0.002858835222936932,
+          "hi": 0.0035282792216428864,
+          "n": 2370
+        },
+        "diff": 0.00156291834616785,
+        "ci": [
+          0.0011864660577407629,
+          0.0019586420047709757
+        ],
+        "p_value": 0.0,
+        "significant": true,
+        "higher_is_better": false,
+        "win_tie_loss": {
+          "win": 384,
+          "tie": 1736,
+          "loss": 250,
+          "n": 2370
+        }
+      },
+      "n_hallucinated": {
+        "base": 0.032489451476793246,
+        "tuned": 0.020253164556962026,
+        "base_ci": {
+          "mean": 0.032489451476793246,
+          "lo": 0.024894514767932488,
+          "hi": 0.04050632911392405,
+          "n": 2370
+        },
+        "tuned_ci": {
+          "mean": 0.020253164556962026,
+          "lo": 0.014767932489451477,
+          "hi": 0.026160337552742614,
+          "n": 2370
+        },
+        "diff": -0.01223628691983122,
+        "ci": [
+          -0.021518987341772152,
+          -0.0033755274261603376
+        ],
+        "p_value": 0.0074,
+        "significant": true,
+        "higher_is_better": false,
+        "win_tie_loss": {
+          "win": 36,
+          "tie": 2276,
+          "loss": 58,
+          "n": 2370
+        }
+      }
+    },
+    "confusion_base": {
+      "accuracy": 0.7557,
+      "near_miss_rate": 0.1105,
+      "cross_category_rate": 0.1338,
+      "top_confusions": [
+        {
+          "true_intent": "registration_problems",
+          "predicted_intent": "set_up_shipping_address",
+          "n": 52,
+          "same_category": false
+        },
+        {
+          "true_intent": "delivery_period",
+          "predicted_intent": "delivery_options",
+          "n": 36,
+          "same_category": true
+        },
+        {
+          "true_intent": "registration_problems",
+          "predicted_intent": "create_account",
+          "n": 24,
+          "same_category": true
+        },
+        {
+          "true_intent": "contact_customer_service",
+          "predicted_intent": "contact_human_agent",
+          "n": 23,
+          "same_category": true
+        },
+        {
+          "true_intent": "get_invoice",
+          "predicted_intent": "check_invoice",
+          "n": 18,
+          "same_category": true
+        },
+        {
+          "true_intent": "delivery_period",
+          "predicted_intent": "track_order",
+          "n": 17,
+          "same_category": false
+        },
+        {
+          "true_intent": "cancel_order",
+          "predicted_intent": "get_refund",
+          "n": 15,
+          "same_category": false
+        },
+        {
+          "true_intent": "edit_account",
+          "predicted_intent": "change_shipping_address",
+          "n": 14,
+          "same_category": false
+        },
+        {
+          "true_intent": "set_up_shipping_address",
+          "predicted_intent": "change_shipping_address",
+          "n": 14,
+          "same_category": true
+        },
+        {
+          "true_intent": "check_invoice",
+          "predicted_intent": "get_invoice",
+          "n": 13,
+          "same_category": true
+        },
+        {
+          "true_intent": "change_order",
+          "predicted_intent": "get_refund",
+          "n": 11,
+          "same_category": false
+        },
+        {
+          "true_intent": "edit_account",
+          "predicted_intent": "recover_password",
+          "n": 11,
+          "same_category": true
+        },
+        {
+          "true_intent": "change_shipping_address",
+          "predicted_intent": "set_up_shipping_address",
+          "n": 10,
+          "same_category": true
+        },
+        {
+          "true_intent": "contact_human_agent",
+          "predicted_intent": "contact_customer_service",
+          "n": 10,
+          "same_category": true
+        },
+        {
+          "true_intent": "delete_account",
+          "predicted_intent": "create_account",
+          "n": 9,
+          "same_category": true
+        },
+        {
+          "true_intent": "payment_issue",
+          "predicted_intent": "set_up_shipping_address",
+          "n": 9,
+          "same_category": false
+        },
+        {
+          "true_intent": "cancel_order",
+          "predicted_intent": "change_order",
+          "n": 8,
+          "same_category": true
+        },
+        {
+          "true_intent": "create_account",
+          "predicted_intent": "switch_account",
+          "n": 8,
+          "same_category": true
+        },
+        {
+          "true_intent": "get_refund",
+          "predicted_intent": "check_refund_policy",
+          "n": 8,
+          "same_category": true
+        },
+        {
+          "true_intent": "registration_problems",
+          "predicted_intent": "change_shipping_address",
+          "n": 8,
+          "same_category": false
+        },
+        {
+          "true_intent": "cancel_order",
+          "predicted_intent": "place_order",
+          "n": 7,
+          "same_category": true
+        },
+        {
+          "true_intent": "cancel_order",
+          "predicted_intent": "payment_issue",
+          "n": 7,
+          "same_category": false
+        },
+        {
+          "true_intent": "cancel_order",
+          "predicted_intent": "check_refund_policy",
+          "n": 7,
+          "same_category": false
+        },
+        {
+          "true_intent": "cancel_order",
+          "predicted_intent": "check_cancellation_fee",
+          "n": 7,
+          "same_category": false
+        },
+        {
+          "true_intent": "change_order",
+          "predicted_intent": "place_order",
+          "n": 7,
+          "same_category": true
+        },
+        {
+          "true_intent": "create_account",
+          "predicted_intent": "check_cancellation_fee",
+          "n": 7,
+          "same_category": false
+        },
+        {
+          "true_intent": "cancel_order",
+          "predicted_intent": "recover_password",
+          "n": 6,
+          "same_category": false
+        },
+        {
+          "true_intent": "change_order",
+          "predicted_intent": "change_shipping_address",
+          "n": 6,
+          "same_category": false
+        },
+        {
+          "true_intent": "switch_account",
+          "predicted_intent": "recover_password",
+          "n": 6,
+          "same_category": true
+        },
+        {
+          "true_intent": "switch_account",
+          "predicted_intent": "create_account",
+          "n": 6,
+          "same_category": true
+        },
+        {
+          "true_intent": "switch_account",
+          "predicted_intent": "delete_account",
+          "n": 6,
+          "same_category": true
+        },
+        {
+          "true_intent": "track_order",
+          "predicted_intent": "delivery_period",
+          "n": 6,
+          "same_category": false
+        },
+        {
+          "true_intent": "cancel_order",
+          "predicted_intent": "track_order",
+          "n": 5,
+          "same_category": true
+        },
+        {
+          "true_intent": "contact_customer_service",
+          "predicted_intent": "change_shipping_address",
+          "n": 5,
+          "same_category": false
+        },
+        {
+          "true_intent": "delete_account",
+          "predicted_intent": "check_cancellation_fee",
+          "n": 5,
+          "same_category": false
+        },
+        {
+          "true_intent": "delivery_options",
+          "predicted_intent": "delivery_period",
+          "n": 5,
+          "same_category": true
+        },
+        {
+          "true_intent": "change_order",
+          "predicted_intent": "track_order",
+          "n": 4,
+          "same_category": true
+        },
+        {
+          "true_intent": "contact_customer_service",
+          "predicted_intent": "place_order",
+          "n": 4,
+          "same_category": false
+        },
+        {
+          "true_intent": "contact_customer_service",
+          "predicted_intent": "check_cancellation_fee",
+          "n": 4,
+          "same_category": false
+        },
+        {
+          "true_intent": "contact_human_agent",
+          "predicted_intent": "change_shipping_address",
+          "n": 4,
+          "same_category": false
+        },
+        {
+          "true_intent": "delete_account",
+          "predicted_intent": "get_refund",
+          "n": 4,
+          "same_category": false
+        },
+        {
+          "true_intent": "delivery_period",
+          "predicted_intent": "check_cancellation_fee",
+          "n": 4,
+          "same_category": false
+        },
+        {
+          "true_intent": "track_order",
+          "predicted_intent": "check_invoice",
+          "n": 4,
+          "same_category": false
+        },
+        {
+          "true_intent": "change_order",
+          "predicted_intent": "edit_account",
+          "n": 3,
+          "same_category": false
+        },
+        {
+          "true_intent": "change_order",
+          "predicted_intent": "set_up_shipping_address",
+          "n": 3,
+          "same_category": false
+        },
+        {
+          "true_intent": "check_invoice",
+          "predicted_intent": "edit_account",
+          "n": 3,
+          "same_category": false
+        },
+        {
+          "true_intent": "contact_customer_service",
+          "predicted_intent": "get_refund",
+          "n": 3,
+          "same_category": false
+        },
+        {
+          "true_intent": "contact_customer_service",
+          "predicted_intent": "payment_issue",
+          "n": 3,
+          "same_category": false
+        },
+        {
+          "true_intent": "delivery_options",
+          "predicted_intent": "change_shipping_address",
+          "n": 3,
+          "same_category": false
+        },
+        {
+          "true_intent": "delivery_period",
+          "predicted_intent": "change_shipping_address",
+          "n": 3,
+          "same_category": false
+        },
+        {
+          "true_intent": "registration_problems",
+          "predicted_intent": "recover_password",
+          "n": 3,
+          "same_category": true
+        },
+        {
+          "true_intent": "track_order",
+          "predicted_intent": "get_refund",
+          "n": 3,
+          "same_category": false
+        },
+        {
+          "true_intent": "track_refund",
+          "predicted_intent": "get_refund",
+          "n": 3,
+          "same_category": true
+        },
+        {
+          "true_intent": "cancel_order",
+          "predicted_intent": "delete_account",
+          "n": 2,
+          "same_category": false
+        },
+        {
+          "true_intent": "cancel_order",
+          "predicted_intent": "create_account",
+          "n": 2,
+          "same_category": false
+        },
+        {
+          "true_intent": "change_order",
+          "predicted_intent": "check_cancellation_fee",
+          "n": 2,
+          "same_category": false
+        },
+        {
+          "true_intent": "check_invoice",
+          "predicted_intent": "check_cancellation_fee",
+          "n": 2,
+          "same_category": false
+        },
+        {
+          "true_intent": "check_invoice",
+          "predicted_intent": "recover_password",
+          "n": 2,
+          "same_category": false
+        },
+        {
+          "true_intent": "check_invoice",
+          "predicted_intent": "payment_issue",
+          "n": 2,
+          "same_category": false
+        },
+        {
+          "true_intent": "check_payment_methods",
+          "predicted_intent": "payment_issue",
+          "n": 2,
+          "same_category": true
+        },
+        {
+          "true_intent": "complaint",
+          "predicted_intent": "get_refund",
+          "n": 2,
+          "same_category": false
+        },
+        {
+          "true_intent": "create_account",
+          "predicted_intent": "place_order",
+          "n": 2,
+          "same_category": false
+        },
+        {
+          "true_intent": "delete_account",
+          "predicted_intent": "recover_password",
+          "n": 2,
+          "same_category": true
+        },
+        {
+          "true_intent": "delivery_options",
+          "predicted_intent": "track_order",
+          "n": 2,
+          "same_category": false
+        },
+        {
+          "true_intent": "delivery_options",
+          "predicted_intent": "check_cancellation_fee",
+          "n": 2,
+          "same_category": false
+        },
+        {
+          "true_intent": "delivery_options",
+          "predicted_intent": "set_up_shipping_address",
+          "n": 2,
+          "same_category": false
+        },
+        {
+          "true_intent": "delivery_period",
+          "predicted_intent": "check_refund_policy",
+          "n": 2,
+          "same_category": false
+        },
+        {
+          "true_intent": "edit_account",
+          "predicted_intent": "create_account",
+          "n": 2,
+          "same_category": true
+        },
+        {
+          "true_intent": "get_invoice",
+          "predicted_intent": "check_cancellation_fee",
+          "n": 2,
+          "same_category": false
+        },
+        {
+          "true_intent": "get_invoice",
+          "predicted_intent": "recover_password",
+          "n": 2,
+          "same_category": false
+        },
+        {
+          "true_intent": "get_invoice",
+          "predicted_intent": "change_shipping_address",
+          "n": 2,
+          "same_category": false
+        },
+        {
+          "true_intent": "payment_issue",
+          "predicted_intent": "create_account",
+          "n": 2,
+          "same_category": false
+        },
+        {
+          "true_intent": "place_order",
+          "predicted_intent": "check_cancellation_fee",
+          "n": 2,
+          "same_category": false
+        },
+        {
+          "true_intent": "place_order",
+          "predicted_intent": "check_refund_policy",
+          "n": 2,
+          "same_category": false
+        },
+        {
+          "true_intent": "switch_account",
+          "predicted_intent": "change_shipping_address",
+          "n": 2,
+          "same_category": false
+        },
+        {
+          "true_intent": "switch_account",
+          "predicted_intent": "check_cancellation_fee",
+          "n": 2,
+          "same_category": false
+        },
+        {
+          "true_intent": "switch_account",
+          "predicted_intent": "edit_account",
+          "n": 2,
+          "same_category": true
+        },
+        {
+          "true_intent": "track_order",
+          "predicted_intent": "change_order",
+          "n": 2,
+          "same_category": true
+        },
+        {
+          "true_intent": "track_refund",
+          "predicted_intent": "check_cancellation_fee",
+          "n": 2,
+          "same_category": false
+        },
+        {
+          "true_intent": "cancel_order",
+          "predicted_intent": "contact_customer_service",
+          "n": 1,
+          "same_category": false
+        },
+        {
+          "true_intent": "change_order",
+          "predicted_intent": "recover_password",
+          "n": 1,
+          "same_category": false
+        },
+        {
+          "true_intent": "change_order",
+          "predicted_intent": "cancel_order",
+          "n": 1,
+          "same_category": true
+        },
+        {
+          "true_intent": "check_cancellation_fee",
+          "predicted_intent": "get_refund",
+          "n": 1,
+          "same_category": false
+        },
+        {
+          "true_intent": "check_cancellation_fee",
+          "predicted_intent": "place_order",
+          "n": 1,
+          "same_category": false
+        },
+        {
+          "true_intent": "check_invoice",
+          "predicted_intent": "contact_human_agent",
+          "n": 1,
+          "same_category": false
+        },
+        {
+          "true_intent": "check_invoice",
+          "predicted_intent": "place_order",
+          "n": 1,
+          "same_category": false
+        },
+        {
+          "true_intent": "check_invoice",
+          "predicted_intent": "check_refund_policy",
+          "n": 1,
+          "same_category": false
+        },
+        {
+          "true_intent": "check_invoice",
+          "predicted_intent": "create_account",
+          "n": 1,
+          "same_category": false
+        },
+        {
+          "true_intent": "check_payment_methods",
+          "predicted_intent": "create_account",
+          "n": 1,
+          "same_category": false
+        },
+        {
+          "true_intent": "check_refund_policy",
+          "predicted_intent": "place_order",
+          "n": 1,
+          "same_category": false
+        },
+        {
+          "true_intent": "check_refund_policy",
+          "predicted_intent": "recover_password",
+          "n": 1,
+          "same_category": false
+        },
+        {
+          "true_intent": "check_refund_policy",
+          "predicted_intent": "get_refund",
+          "n": 1,
+          "same_category": true
+        },
+        {
+          "true_intent": "check_refund_policy",
+          "predicted_intent": "change_shipping_address",
+          "n": 1,
+          "same_category": false
+        },
+        {
+          "true_intent": "complaint",
+          "predicted_intent": "contact_customer_service",
+          "n": 1,
+          "same_category": false
+        },
+        {
+          "true_intent": "contact_customer_service",
+          "predicted_intent": "delete_account",
+          "n": 1,
+          "same_category": false
+        },
+        {
+          "true_intent": "contact_customer_service",
+          "predicted_intent": "check_invoice",
+          "n": 1,
+          "same_category": false
+        },
+        {
+          "true_intent": "contact_human_agent",
+          "predicted_intent": "place_order",
+          "n": 1,
+          "same_category": false
+        },
+        {
+          "true_intent": "contact_human_agent",
+          "predicted_intent": "create_account",
+          "n": 1,
+          "same_category": false
+        },
+        {
+          "true_intent": "contact_human_agent",
+          "predicted_intent": "delivery_options",
+          "n": 1,
+          "same_category": false
+        },
+        {
+          "true_intent": "contact_human_agent",
+          "predicted_intent": "edit_account",
+          "n": 1,
+          "same_category": false
+        },
+        {
+          "true_intent": "contact_human_agent",
+          "predicted_intent": "payment_issue",
+          "n": 1,
+          "same_category": false
+        },
+        {
+          "true_intent": "contact_human_agent",
+          "predicted_intent": "get_refund",
+          "n": 1,
+          "same_category": false
+        },
+        {
+          "true_intent": "create_account",
+          "predicted_intent": "edit_account",
+          "n": 1,
+          "same_category": true
+        },
+        {
+          "true_intent": "create_account",
+          "predicted_intent": "check_refund_policy",
+          "n": 1,
+          "same_category": false
+        },
+        {
+          "true_intent": "delete_account",
+          "predicted_intent": "change_shipping_address",
+          "n": 1,
+          "same_category": false
+        },
+        {
+          "true_intent": "delete_account",
+          "predicted_intent": "contact_human_agent",
+          "n": 1,
+          "same_category": false
+        },
+        {
+          "true_intent": "delete_account",
+          "predicted_intent": "switch_account",
+          "n": 1,
+          "same_category": true
+        },
+        {
+          "true_intent": "delete_account",
+          "predicted_intent": "change_order",
+          "n": 1,
+          "same_category": false
+        },
+        {
+          "true_intent": "delete_account",
+          "predicted_intent": "track_refund",
+          "n": 1,
+          "same_category": false
+        },
+        {
+          "true_intent": "delivery_options",
+          "predicted_intent": "place_order",
+          "n": 1,
+          "same_category": false
+        },
+        {
+          "true_intent": "delivery_period",
+          "predicted_intent": "track_refund",
+          "n": 1,
+          "same_category": false
+        },
+        {
+          "true_intent": "delivery_period",
+          "predicted_intent": "place_order",
+          "n": 1,
+          "same_category": false
+        },
+        {
+          "true_intent": "edit_account",
+          "predicted_intent": "delete_account",
+          "n": 1,
+          "same_category": true
+        },
+        {
+          "true_intent": "get_invoice",
+          "predicted_intent": "payment_issue",
+          "n": 1,
+          "same_category": false
+        },
+        {
+          "true_intent": "get_invoice",
+          "predicted_intent": "edit_account",
+          "n": 1,
+          "same_category": false
+        },
+        {
+          "true_intent": "get_invoice",
+          "predicted_intent": "change_order",
+          "n": 1,
+          "same_category": false
+        },
+        {
+          "true_intent": "get_refund",
+          "predicted_intent": "track_refund",
+          "n": 1,
+          "same_category": true
+        },
+        {
+          "true_intent": "get_refund",
+          "predicted_intent": "complaint",
+          "n": 1,
+          "same_category": false
+        },
+        {
+          "true_intent": "newsletter_subscription",
+          "predicted_intent": "set_up_shipping_address",
+          "n": 1,
+          "same_category": false
+        },
+        {
+          "true_intent": "payment_issue",
+          "predicted_intent": "check_cancellation_fee",
+          "n": 1,
+          "same_category": false
+        },
+        {
+          "true_intent": "payment_issue",
+          "predicted_intent": "contact_human_agent",
+          "n": 1,
+          "same_category": false
+        },
+        {
+          "true_intent": "recover_password",
+          "predicted_intent": "get_refund",
+          "n": 1,
+          "same_category": false
+        },
+        {
+          "true_intent": "registration_problems",
+          "predicted_intent": "edit_account",
+          "n": 1,
+          "same_category": true
+        },
+        {
+          "true_intent": "switch_account",
+          "predicted_intent": "contact_customer_service",
+          "n": 1,
+          "same_category": false
+        },
+        {
+          "true_intent": "switch_account",
+          "predicted_intent": "payment_issue",
+          "n": 1,
+          "same_category": false
+        },
+        {
+          "true_intent": "track_order",
+          "predicted_intent": "check_cancellation_fee",
+          "n": 1,
+          "same_category": false
+        },
+        {
+          "true_intent": "track_order",
+          "predicted_intent": "place_order",
+          "n": 1,
+          "same_category": true
+        },
+        {
+          "true_intent": "track_order",
+          "predicted_intent": "recover_password",
+          "n": 1,
+          "same_category": false
+        },
+        {
+          "true_intent": "track_order",
+          "predicted_intent": "get_invoice",
+          "n": 1,
+          "same_category": false
+        },
+        {
+          "true_intent": "track_order",
+          "predicted_intent": "edit_account",
+          "n": 1,
+          "same_category": false
+        },
+        {
+          "true_intent": "track_refund",
+          "predicted_intent": "track_order",
+          "n": 1,
+          "same_category": false
+        },
+        {
+          "true_intent": "track_refund",
+          "predicted_intent": "edit_account",
+          "n": 1,
+          "same_category": false
+        }
+      ],
+      "worst_intents": [
+        {
+          "intent": "registration_problems",
+          "n": 100,
+          "recall": 0.12,
+          "top_confusion": "set_up_shipping_address",
+          "top_confusion_n": 52
+        },
+        {
+          "intent": "contact_customer_service",
+          "n": 52,
+          "recall": 0.15384615384615385,
+          "top_confusion": "contact_human_agent",
+          "top_confusion_n": 23
+        },
+        {
+          "intent": "delivery_period",
+          "n": 90,
+          "recall": 0.28888888888888886,
+          "top_confusion": "delivery_options",
+          "top_confusion_n": 36
+        },
+        {
+          "intent": "cancel_order",
+          "n": 100,
+          "recall": 0.33,
+          "top_confusion": "get_refund",
+          "top_confusion_n": 15
+        },
+        {
+          "intent": "switch_account",
+          "n": 51,
+          "recall": 0.49019607843137253,
+          "top_confusion": "create_account",
+          "top_confusion_n": 6
+        },
+        {
+          "intent": "change_order",
+          "n": 100,
+          "recall": 0.62,
+          "top_confusion": "get_refund",
+          "top_confusion_n": 11
+        },
+        {
+          "intent": "set_up_shipping_address",
+          "n": 45,
+          "recall": 0.6888888888888889,
+          "top_confusion": "change_shipping_address",
+          "top_confusion_n": 14
+        },
+        {
+          "intent": "edit_account",
+          "n": 100,
+          "recall": 0.72,
+          "top_confusion": "change_shipping_address",
+          "top_confusion_n": 14
+        }
+      ]
+    },
+    "confusion_tuned": {
+      "accuracy": 0.8928,
+      "near_miss_rate": 0.0582,
+      "cross_category_rate": 0.0489,
+      "top_confusions": [
+        {
+          "true_intent": "get_invoice",
+          "predicted_intent": "check_invoice",
+          "n": 33,
+          "same_category": true
+        },
+        {
+          "true_intent": "registration_problems",
+          "predicted_intent": "payment_issue",
+          "n": 29,
+          "same_category": false
+        },
+        {
+          "true_intent": "check_invoice",
+          "predicted_intent": "get_invoice",
+          "n": 25,
+          "same_category": true
+        },
+        {
+          "true_intent": "delivery_period",
+          "predicted_intent": "delivery_options",
+          "n": 22,
+          "same_category": true
+        },
+        {
+          "true_intent": "contact_customer_service",
+          "predicted_intent": "check_cancellation_fee",
+          "n": 16,
+          "same_category": false
+        },
+        {
+          "true_intent": "contact_customer_service",
+          "predicted_intent": "contact_human_agent",
+          "n": 10,
+          "same_category": true
+        },
+        {
+          "true_intent": "cancel_order",
+          "predicted_intent": "place_order",
+          "n": 9,
+          "same_category": true
+        },
+        {
+          "true_intent": "change_shipping_address",
+          "predicted_intent": "set_up_shipping_address",
+          "n": 9,
+          "same_category": true
+        },
+        {
+          "true_intent": "registration_problems",
+          "predicted_intent": "create_account",
+          "n": 8,
+          "same_category": true
+        },
+        {
+          "true_intent": "cancel_order",
+          "predicted_intent": "set_up_shipping_address",
+          "n": 5,
+          "same_category": false
+        },
+        {
+          "true_intent": "registration_problems",
+          "predicted_intent": "set_up_shipping_address",
+          "n": 5,
+          "same_category": false
+        },
+        {
+          "true_intent": "cancel_order",
+          "predicted_intent": "track_order",
+          "n": 4,
+          "same_category": true
+        },
+        {
+          "true_intent": "delivery_period",
+          "predicted_intent": "place_order",
+          "n": 4,
+          "same_category": false
+        },
+        {
+          "true_intent": "cancel_order",
+          "predicted_intent": "contact_customer_service",
+          "n": 3,
+          "same_category": false
+        },
+        {
+          "true_intent": "delivery_options",
+          "predicted_intent": "delivery_period",
+          "n": 3,
+          "same_category": true
+        },
+        {
+          "true_intent": "delivery_options",
+          "predicted_intent": "set_up_shipping_address",
+          "n": 3,
+          "same_category": false
+        },
+        {
+          "true_intent": "get_refund",
+          "predicted_intent": "track_refund",
+          "n": 3,
+          "same_category": true
+        },
+        {
+          "true_intent": "track_order",
+          "predicted_intent": "delivery_period",
+          "n": 3,
+          "same_category": false
+        },
+        {
+          "true_intent": "cancel_order",
+          "predicted_intent": "payment_issue",
+          "n": 2,
+          "same_category": false
+        },
+        {
+          "true_intent": "contact_customer_service",
+          "predicted_intent": "edit_account",
+          "n": 2,
+          "same_category": false
+        },
+        {
+          "true_intent": "contact_human_agent",
+          "predicted_intent": "change_shipping_address",
+          "n": 2,
+          "same_category": false
+        },
+        {
+          "true_intent": "edit_account",
+          "predicted_intent": "contact_human_agent",
+          "n": 2,
+          "same_category": false
+        },
+        {
+          "true_intent": "get_invoice",
+          "predicted_intent": "get_refund",
+          "n": 2,
+          "same_category": false
+        },
+        {
+          "true_intent": "payment_issue",
+          "predicted_intent": "place_order",
+          "n": 2,
+          "same_category": false
+        },
+        {
+          "true_intent": "payment_issue",
+          "predicted_intent": "create_account",
+          "n": 2,
+          "same_category": false
+        },
+        {
+          "true_intent": "review",
+          "predicted_intent": "check_cancellation_fee",
+          "n": 2,
+          "same_category": false
+        },
+        {
+          "true_intent": "set_up_shipping_address",
+          "predicted_intent": "change_shipping_address",
+          "n": 2,
+          "same_category": true
+        },
+        {
+          "true_intent": "switch_account",
+          "predicted_intent": "change_shipping_address",
+          "n": 2,
+          "same_category": false
+        },
+        {
+          "true_intent": "track_order",
+          "predicted_intent": "check_invoice",
+          "n": 2,
+          "same_category": false
+        },
+        {
+          "true_intent": "cancel_order",
+          "predicted_intent": "change_order",
+          "n": 1,
+          "same_category": true
+        },
+        {
+          "true_intent": "cancel_order",
+          "predicted_intent": "delete_account",
+          "n": 1,
+          "same_category": false
+        },
+        {
+          "true_intent": "change_order",
+          "predicted_intent": "recover_password",
+          "n": 1,
+          "same_category": false
+        },
+        {
+          "true_intent": "change_order",
+          "predicted_intent": "set_up_shipping_address",
+          "n": 1,
+          "same_category": false
+        },
+        {
+          "true_intent": "check_invoice",
+          "predicted_intent": "delivery_options",
+          "n": 1,
+          "same_category": false
+        },
+        {
+          "true_intent": "check_invoice",
+          "predicted_intent": "check_cancellation_fee",
+          "n": 1,
+          "same_category": false
+        },
+        {
+          "true_intent": "check_payment_methods",
+          "predicted_intent": "place_order",
+          "n": 1,
+          "same_category": false
+        },
+        {
+          "true_intent": "check_refund_policy",
+          "predicted_intent": "check_cancellation_fee",
+          "n": 1,
+          "same_category": false
+        },
+        {
+          "true_intent": "check_refund_policy",
+          "predicted_intent": "get_refund",
+          "n": 1,
+          "same_category": true
+        },
+        {
+          "true_intent": "complaint",
+          "predicted_intent": "payment_issue",
+          "n": 1,
+          "same_category": false
+        },
+        {
+          "true_intent": "contact_customer_service",
+          "predicted_intent": "change_shipping_address",
+          "n": 1,
+          "same_category": false
+        },
+        {
+          "true_intent": "contact_human_agent",
+          "predicted_intent": "contact_customer_service",
+          "n": 1,
+          "same_category": true
+        },
+        {
+          "true_intent": "contact_human_agent",
+          "predicted_intent": "place_order",
+          "n": 1,
+          "same_category": false
+        },
+        {
+          "true_intent": "contact_human_agent",
+          "predicted_intent": "edit_account",
+          "n": 1,
+          "same_category": false
+        },
+        {
+          "true_intent": "contact_human_agent",
+          "predicted_intent": "newsletter_subscription",
+          "n": 1,
+          "same_category": false
+        },
+        {
+          "true_intent": "create_account",
+          "predicted_intent": "switch_account",
+          "n": 1,
+          "same_category": true
+        },
+        {
+          "true_intent": "delete_account",
+          "predicted_intent": "change_order",
+          "n": 1,
+          "same_category": false
+        },
+        {
+          "true_intent": "delete_account",
+          "predicted_intent": "create_account",
+          "n": 1,
+          "same_category": true
+        },
+        {
+          "true_intent": "delete_account",
+          "predicted_intent": "set_up_shipping_address",
+          "n": 1,
+          "same_category": false
+        },
+        {
+          "true_intent": "delivery_options",
+          "predicted_intent": "place_order",
+          "n": 1,
+          "same_category": false
+        },
+        {
+          "true_intent": "delivery_period",
+          "predicted_intent": "check_invoice",
+          "n": 1,
+          "same_category": false
+        },
+        {
+          "true_intent": "delivery_period",
+          "predicted_intent": "check_cancellation_fee",
+          "n": 1,
+          "same_category": false
+        },
+        {
+          "true_intent": "delivery_period",
+          "predicted_intent": "change_order",
+          "n": 1,
+          "same_category": false
+        },
+        {
+          "true_intent": "delivery_period",
+          "predicted_intent": "track_order",
+          "n": 1,
+          "same_category": false
+        },
+        {
+          "true_intent": "get_refund",
+          "predicted_intent": "check_refund_policy",
+          "n": 1,
+          "same_category": true
+        },
+        {
+          "true_intent": "payment_issue",
+          "predicted_intent": "recover_password",
+          "n": 1,
+          "same_category": false
+        },
+        {
+          "true_intent": "payment_issue",
+          "predicted_intent": "check_payment_methods",
+          "n": 1,
+          "same_category": true
+        },
+        {
+          "true_intent": "payment_issue",
+          "predicted_intent": "set_up_shipping_address",
+          "n": 1,
+          "same_category": false
+        },
+        {
+          "true_intent": "registration_problems",
+          "predicted_intent": "recover_password",
+          "n": 1,
+          "same_category": true
+        },
+        {
+          "true_intent": "review",
+          "predicted_intent": "track_order",
+          "n": 1,
+          "same_category": false
+        },
+        {
+          "true_intent": "switch_account",
+          "predicted_intent": "place_order",
+          "n": 1,
+          "same_category": false
+        },
+        {
+          "true_intent": "switch_account",
+          "predicted_intent": "contact_customer_service",
+          "n": 1,
+          "same_category": false
+        },
+        {
+          "true_intent": "switch_account",
+          "predicted_intent": "get_invoice",
+          "n": 1,
+          "same_category": false
+        },
+        {
+          "true_intent": "switch_account",
+          "predicted_intent": "delete_account",
+          "n": 1,
+          "same_category": true
+        },
+        {
+          "true_intent": "track_order",
+          "predicted_intent": "track_refund",
+          "n": 1,
+          "same_category": false
+        },
+        {
+          "true_intent": "track_order",
+          "predicted_intent": "change_order",
+          "n": 1,
+          "same_category": true
+        },
+        {
+          "true_intent": "track_order",
+          "predicted_intent": "set_up_shipping_address",
+          "n": 1,
+          "same_category": false
+        },
+        {
+          "true_intent": "track_order",
+          "predicted_intent": "get_invoice",
+          "n": 1,
+          "same_category": false
+        }
+      ],
+      "worst_intents": [
+        {
+          "intent": "contact_customer_service",
+          "n": 52,
+          "recall": 0.4423076923076923,
+          "top_confusion": "check_cancellation_fee",
+          "top_confusion_n": 16
+        },
+        {
+          "intent": "registration_problems",
+          "n": 100,
+          "recall": 0.57,
+          "top_confusion": "payment_issue",
+          "top_confusion_n": 29
+        },
+        {
+          "intent": "get_invoice",
+          "n": 100,
+          "recall": 0.65,
+          "top_confusion": "check_invoice",
+          "top_confusion_n": 33
+        },
+        {
+          "intent": "delivery_period",
+          "n": 90,
+          "recall": 0.6666666666666666,
+          "top_confusion": "delivery_options",
+          "top_confusion_n": 22
+        },
+        {
+          "intent": "check_invoice",
+          "n": 100,
+          "recall": 0.73,
+          "top_confusion": "get_invoice",
+          "top_confusion_n": 25
+        },
+        {
+          "intent": "cancel_order",
+          "n": 100,
+          "recall": 0.75,
+          "top_confusion": "place_order",
+          "top_confusion_n": 9
+        },
+        {
+          "intent": "switch_account",
+          "n": 51,
+          "recall": 0.8823529411764706,
+          "top_confusion": "change_shipping_address",
+          "top_confusion_n": 2
+        },
+        {
+          "intent": "payment_issue",
+          "n": 71,
+          "recall": 0.9014084507042254,
+          "top_confusion": "create_account",
+          "top_confusion_n": 2
+        }
+      ]
+    }
+  },
+  "ood": {
+    "slice": "ood",
+    "n": 113,
+    "base": "ibm-granite/granite-3.3-2b-instruct (base)",
+    "tuned": "final-polished",
+    "intent_clf_ceiling": null,
+    "metrics": {
+      "entity_recall": {
+        "base": 0.6,
+        "tuned": 0.6666666666666666,
+        "base_ci": {
+          "mean": 0.6,
+          "lo": 0.3333333333333333,
+          "hi": 0.8666666666666667,
+          "n": 15
+        },
+        "tuned_ci": {
+          "mean": 0.6666666666666666,
+          "lo": 0.4,
+          "hi": 0.8666666666666667,
+          "n": 15
+        },
+        "diff": 0.06666666666666665,
+        "ci": [
+          -0.26666666666666666,
+          0.4
+        ],
+        "p_value": 0.857,
+        "significant": false,
+        "higher_is_better": true,
+        "win_tie_loss": {
+          "win": 4,
+          "tie": 8,
+          "loss": 3,
+          "n": 15
+        }
+      },
+      "entity_clean": {
+        "base": 0.9646017699115044,
+        "tuned": 1.0,
+        "base_ci": {
+          "mean": 0.9646017699115044,
+          "lo": 0.9292035398230089,
+          "hi": 0.9911504424778761,
+          "n": 113
+        },
+        "tuned_ci": {
+          "mean": 1.0,
+          "lo": 1.0,
+          "hi": 1.0,
+          "n": 113
+        },
+        "diff": 0.03539823008849563,
+        "ci": [
+          0.008849557522123894,
+          0.07079646017699115
+        ],
+        "p_value": 0.0364,
+        "significant": true,
+        "higher_is_better": true,
+        "win_tie_loss": {
+          "win": 4,
+          "tie": 109,
+          "loss": 0,
+          "n": 113
+        }
+      },
+      "hygiene_clean": {
+        "base": 0.5929203539823009,
+        "tuned": 0.8495575221238938,
+        "base_ci": {
+          "mean": 0.5929203539823009,
+          "lo": 0.504424778761062,
+          "hi": 0.6814159292035398,
+          "n": 113
+        },
+        "tuned_ci": {
+          "mean": 0.8495575221238938,
+          "lo": 0.7787610619469026,
+          "hi": 0.911504424778761,
+          "n": 113
+        },
+        "diff": 0.2566371681415929,
+        "ci": [
+          0.1592920353982301,
+          0.36283185840707965
+        ],
+        "p_value": 0.0,
+        "significant": true,
+        "higher_is_better": true,
+        "win_tie_loss": {
+          "win": 35,
+          "tie": 72,
+          "loss": 6,
+          "n": 113
+        }
+      },
+      "think_leakage": {
+        "base": 0.0,
+        "tuned": 0.0,
+        "base_ci": {
+          "mean": 0.0,
+          "lo": 0.0,
+          "hi": 0.0,
+          "n": 113
+        },
+        "tuned_ci": {
+          "mean": 0.0,
+          "lo": 0.0,
+          "hi": 0.0,
+          "n": 113
+        },
+        "diff": 0.0,
+        "ci": [
+          0.0,
+          0.0
+        ],
+        "p_value": 1.0,
+        "significant": false,
+        "higher_is_better": false,
+        "win_tie_loss": {
+          "win": 0,
+          "tie": 113,
+          "loss": 0,
+          "n": 113
+        }
+      },
+      "refusal": {
+        "base": 0.36283185840707965,
+        "tuned": 0.1415929203539823,
+        "base_ci": {
+          "mean": 0.36283185840707965,
+          "lo": 0.2743362831858407,
+          "hi": 0.45132743362831856,
+          "n": 113
+        },
+        "tuned_ci": {
+          "mean": 0.1415929203539823,
+          "lo": 0.07964601769911504,
+          "hi": 0.20376106194689944,
+          "n": 113
+        },
+        "diff": -0.22123893805309736,
+        "ci": [
+          -0.3185840707964602,
+          -0.12389380530973451
+        ],
+        "p_value": 0.0,
+        "significant": true,
+        "higher_is_better": false,
+        "win_tie_loss": {
+          "win": 6,
+          "tie": 76,
+          "loss": 31,
+          "n": 113
+        }
+      },
+      "boilerplate": {
+        "base": 0.0,
+        "tuned": 0.0,
+        "base_ci": {
+          "mean": 0.0,
+          "lo": 0.0,
+          "hi": 0.0,
+          "n": 113
+        },
+        "tuned_ci": {
+          "mean": 0.0,
+          "lo": 0.0,
+          "hi": 0.0,
+          "n": 113
+        },
+        "diff": 0.0,
+        "ci": [
+          0.0,
+          0.0
+        ],
+        "p_value": 1.0,
+        "significant": false,
+        "higher_is_better": false,
+        "win_tie_loss": {
+          "win": 0,
+          "tie": 113,
+          "loss": 0,
+          "n": 113
+        }
+      },
+      "truncated": {
+        "base": 0.04424778761061947,
+        "tuned": 0.0,
+        "base_ci": {
+          "mean": 0.04424778761061947,
+          "lo": 0.008849557522123894,
+          "hi": 0.08849557522123894,
+          "n": 113
+        },
+        "tuned_ci": {
+          "mean": 0.0,
+          "lo": 0.0,
+          "hi": 0.0,
+          "n": 113
+        },
+        "diff": -0.04424778761061947,
+        "ci": [
+          -0.08849557522123894,
+          -0.008849557522123894
+        ],
+        "p_value": 0.012,
+        "significant": true,
+        "higher_is_better": false,
+        "win_tie_loss": {
+          "win": 0,
+          "tie": 108,
+          "loss": 5,
+          "n": 113
+        }
+      },
+      "repetition_rate": {
+        "base": 0.0011065917109170911,
+        "tuned": 0.0032707372057713302,
+        "base_ci": {
+          "mean": 0.0011065917109170911,
+          "lo": 0.0003857726042922075,
+          "hi": 0.002050376836650655,
+          "n": 113
+        },
+        "tuned_ci": {
+          "mean": 0.0032707372057713302,
+          "lo": 0.0014743295988037428,
+          "hi": 0.005417034729685618,
+          "n": 113
+        },
+        "diff": 0.0021641454948542393,
+        "ci": [
+          0.00014992109106973513,
+          0.004474389436410001
+        ],
+        "p_value": 0.034,
+        "significant": true,
+        "higher_is_better": false,
+        "win_tie_loss": {
+          "win": 12,
+          "tie": 94,
+          "loss": 7,
+          "n": 113
+        }
+      },
+      "n_hallucinated": {
+        "base": 0.05309734513274336,
+        "tuned": 0.0,
+        "base_ci": {
+          "mean": 0.05309734513274336,
+          "lo": 0.008849557522123894,
+          "hi": 0.12389380530973451,
+          "n": 113
+        },
+        "tuned_ci": {
+          "mean": 0.0,
+          "lo": 0.0,
+          "hi": 0.0,
+          "n": 113
+        },
+        "diff": -0.05309734513274336,
+        "ci": [
+          -0.12389380530973451,
+          -0.008849557522123894
+        ],
+        "p_value": 0.0364,
+        "significant": true,
+        "higher_is_better": false,
+        "win_tie_loss": {
+          "win": 0,
+          "tie": 109,
+          "loss": 4,
+          "n": 113
+        }
+      }
+    }
+  }
+}

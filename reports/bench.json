@@ -1,0 +1,94 @@
+{
+  "method": {
+    "warmup_requests_discarded": 4,
+    "measured_requests_per_level": 24,
+    "max_tokens": 256,
+    "decoding": "greedy (temperature=0)",
+    "prompt_set": [
+      "I need to cancel order 884213",
+      "Where is my package? It was due Tuesday.",
+      "How do I get a refund for an item that never arrived?",
+      "Can you send me invoice INV-20194?",
+      "I can't log into my account, it says wrong password",
+      "What payment methods do you accept?",
+      "Please change the delivery address on order #A-7781",
+      "I want to speak to a human agent"
+    ],
+    "note": "TTFT requires a streaming backend; null for the transformers engine."
+  },
+  "hardware": {
+    "gpu": "NVIDIA GeForce RTX 5060 Laptop GPU",
+    "vram_gb": 8.1,
+    "capability": "12.0",
+    "torch": "2.14.0+cu130"
+  },
+  "served": "vllm:csbot",
+  "engine": "proxy",
+  "results": [
+    {
+      "concurrency": 1,
+      "n_requests": 24,
+      "wall_s": 66.85,
+      "latency_p50_s": 3.263,
+      "latency_p95_s": 4.539,
+      "latency_p99_s": 4.545,
+      "latency_mean_s": 2.785,
+      "requests_per_s": 0.36,
+      "output_tokens_per_s": 55.4,
+      "mean_output_tokens": 154.4,
+      "ttft_s": null
+    },
+    {
+      "concurrency": 4,
+      "n_requests": 24,
+      "wall_s": 15.36,
+      "latency_p50_s": 2.63,
+      "latency_p95_s": 4.552,
+      "latency_p99_s": 4.568,
+      "latency_mean_s": 2.509,
+      "requests_per_s": 1.56,
+      "output_tokens_per_s": 214.9,
+      "mean_output_tokens": 137.5,
+      "ttft_s": null
+    },
+    {
+      "concurrency": 8,
+      "n_requests": 24,
+      "wall_s": 8.86,
+      "latency_p50_s": 2.657,
+      "latency_p95_s": 4.573,
+      "latency_p99_s": 4.719,
+      "latency_mean_s": 2.526,
+      "requests_per_s": 2.71,
+      "output_tokens_per_s": 368.5,
+      "mean_output_tokens": 136.0,
+      "ttft_s": null
+    },
+    {
+      "concurrency": 16,
+      "n_requests": 24,
+      "wall_s": 5.9,
+      "latency_p50_s": 3.406,
+      "latency_p95_s": 4.936,
+      "latency_p99_s": 4.937,
+      "latency_mean_s": 2.838,
+      "requests_per_s": 4.07,
+      "output_tokens_per_s": 582.9,
+      "mean_output_tokens": 143.4,
+      "ttft_s": null
+    },
+    {
+      "concurrency": 24,
+      "n_requests": 24,
+      "wall_s": 5.05,
+      "latency_p50_s": 3.602,
+      "latency_p95_s": 5.004,
+      "latency_p99_s": 5.05,
+      "latency_mean_s": 2.987,
+      "requests_per_s": 4.75,
+      "output_tokens_per_s": 676.9,
+      "mean_output_tokens": 142.5,
+      "ttft_s": null
+    }
+  ]
+}

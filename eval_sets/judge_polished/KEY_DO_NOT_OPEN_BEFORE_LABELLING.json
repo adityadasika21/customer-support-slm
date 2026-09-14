@@ -1,0 +1,322 @@
+[
+  {
+    "item": 1,
+    "group": "hard",
+    "id": "153",
+    "intent": "cancel_order",
+    "a": "base",
+    "b": "fine_tuned"
+  },
+  {
+    "item": 2,
+    "group": "hard",
+    "id": "396",
+    "intent": "cancel_order",
+    "a": "fine_tuned",
+    "b": "base"
+  },
+  {
+    "item": 3,
+    "group": "random",
+    "id": "7602",
+    "intent": "complaint",
+    "a": "fine_tuned",
+    "b": "base"
+  },
+  {
+    "item": 4,
+    "group": "random",
+    "id": "2333",
+    "intent": "change_shipping_address",
+    "a": "base",
+    "b": "fine_tuned"
+  },
+  {
+    "item": 5,
+    "group": "control",
+    "id": "11435",
+    "intent": "delete_account",
+    "a": "degraded_truncated",
+    "b": "gold_reference"
+  },
+  {
+    "item": 6,
+    "group": "random",
+    "id": "18163",
+    "intent": "payment_issue",
+    "a": "fine_tuned",
+    "b": "base"
+  },
+  {
+    "item": 7,
+    "group": "random",
+    "id": "14680",
+    "intent": "edit_account",
+    "a": "fine_tuned",
+    "b": "base"
+  },
+  {
+    "item": 8,
+    "group": "random",
+    "id": "18864",
+    "intent": "payment_issue",
+    "a": "fine_tuned",
+    "b": "base"
+  },
+  {
+    "item": 9,
+    "group": "hard",
+    "id": "319",
+    "intent": "cancel_order",
+    "a": "fine_tuned",
+    "b": "base"
+  },
+  {
+    "item": 10,
+    "group": "random",
+    "id": "13801",
+    "intent": "delivery_period",
+    "a": "base",
+    "b": "fine_tuned"
+  },
+  {
+    "item": 11,
+    "group": "random",
+    "id": "13158",
+    "intent": "delivery_period",
+    "a": "base",
+    "b": "fine_tuned"
+  },
+  {
+    "item": 12,
+    "group": "random",
+    "id": "5976",
+    "intent": "check_refund_policy",
+    "a": "base",
+    "b": "fine_tuned"
+  },
+  {
+    "item": 13,
+    "group": "random",
+    "id": "4602",
+    "intent": "check_invoice",
+    "a": "base",
+    "b": "fine_tuned"
+  },
+  {
+    "item": 14,
+    "group": "random",
+    "id": "2446",
+    "intent": "change_shipping_address",
+    "a": "base",
+    "b": "fine_tuned"
+  },
+  {
+    "item": 15,
+    "group": "hard",
+    "id": "583",
+    "intent": "cancel_order",
+    "a": "base",
+    "b": "fine_tuned"
+  },
+  {
+    "item": 16,
+    "group": "hard",
+    "id": "187",
+    "intent": "cancel_order",
+    "a": "base",
+    "b": "fine_tuned"
+  },
+  {
+    "item": 17,
+    "group": "random",
+    "id": "24949",
+    "intent": "track_order",
+    "a": "base",
+    "b": "fine_tuned"
+  },
+  {
+    "item": 18,
+    "group": "random",
+    "id": "10104",
+    "intent": "create_account",
+    "a": "fine_tuned",
+    "b": "base"
+  },
+  {
+    "item": 19,
+    "group": "random",
+    "id": "7462",
+    "intent": "complaint",
+    "a": "base",
+    "b": "fine_tuned"
+  },
+  {
+    "item": 20,
+    "group": "random",
+    "id": "9323",
+    "intent": "contact_human_agent",
+    "a": "fine_tuned",
+    "b": "base"
+  },
+  {
+    "item": 21,
+    "group": "hard",
+    "id": "17",
+    "intent": "cancel_order",
+    "a": "fine_tuned",
+    "b": "base"
+  },
+  {
+    "item": 22,
+    "group": "control",
+    "id": "11589",
+    "intent": "delete_account",
+    "a": "gold_reference",
+    "b": "degraded_placeholder"
+  },
+  {
+    "item": 23,
+    "group": "hard",
+    "id": "464",
+    "intent": "cancel_order",
+    "a": "fine_tuned",
+    "b": "base"
+  },
+  {
+    "item": 24,
+    "group": "hard",
+    "id": "53",
+    "intent": "cancel_order",
+    "a": "fine_tuned",
+    "b": "base"
+  },
+  {
+    "item": 25,
+    "group": "random",
+    "id": "17266",
+    "intent": "newsletter_subscription",
+    "a": "base",
+    "b": "fine_tuned"
+  },
+  {
+    "item": 26,
+    "group": "hard",
+    "id": "533",
+    "intent": "cancel_order",
+    "a": "fine_tuned",
+    "b": "base"
+  },
+  {
+    "item": 27,
+    "group": "random",
+    "id": "6597",
+    "intent": "check_refund_policy",
+    "a": "fine_tuned",
+    "b": "base"
+  },
+  {
+    "item": 28,
+    "group": "random",
+    "id": "3511",
+    "intent": "check_cancellation_fee",
+    "a": "base",
+    "b": "fine_tuned"
+  },
+  {
+    "item": 29,
+    "group": "random",
+    "id": "22836",
+    "intent": "review",
+    "a": "fine_tuned",
+    "b": "base"
+  },
+  {
+    "item": 30,
+    "group": "random",
+    "id": "15402",
+    "intent": "get_invoice",
+    "a": "fine_tuned",
+    "b": "base"
+  },
+  {
+    "item": 31,
+    "group": "hard",
+    "id": "123",
+    "intent": "cancel_order",
+    "a": "base",
+    "b": "fine_tuned"
+  },
+  {
+    "item": 32,
+    "group": "hard",
+    "id": "522",
+    "intent": "cancel_order",
+    "a": "base",
+    "b": "fine_tuned"
+  },
+  {
+    "item": 33,
+    "group": "hard",
+    "id": "262",
+    "intent": "cancel_order",
+    "a": "fine_tuned",
+    "b": "base"
+  },
+  {
+    "item": 34,
+    "group": "random",
+    "id": "8701",
+    "intent": "contact_customer_service",
+    "a": "fine_tuned",
+    "b": "base"
+  },
+  {
+    "item": 35,
+    "group": "control",
+    "id": "19595",
+    "intent": "place_order",
+    "a": "gold_reference",
+    "b": "degraded_off_topic"
+  },
+  {
+    "item": 36,
+    "group": "control",
+    "id": "464",
+    "intent": "cancel_order",
+    "a": "degraded_generic",
+    "b": "gold_reference"
+  },
+  {
+    "item": 37,
+    "group": "random",
+    "id": "17543",
+    "intent": "newsletter_subscription",
+    "a": "fine_tuned",
+    "b": "base"
+  },
+  {
+    "item": 38,
+    "group": "random",
+    "id": "25849",
+    "intent": "track_order",
+    "a": "fine_tuned",
+    "b": "base"
+  },
+  {
+    "item": 39,
+    "group": "random",
+    "id": "3223",
+    "intent": "check_cancellation_fee",
+    "a": "base",
+    "b": "fine_tuned"
+  },
+  {
+    "item": 40,
+    "group": "random",
+    "id": "17709",
+    "intent": "newsletter_subscription",
+    "a": "base",
+    "b": "fine_tuned"
+  }
+]

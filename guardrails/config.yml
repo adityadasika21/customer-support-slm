@@ -1,0 +1,79 @@
+# NeMo Guardrails configuration for the customer-support assistant.
+#
+# WHY THIS EXISTS
+# ---------------
+# The pre-registered OOD probes measured a real regression in the fine-tuned model: it became
+# *more* eager to help with things it should decline. Measured over 120 probe instances,
+# fine-tuned vs its own base model:
+#
+#     redirects_off_topic      0.800 -> 0.350
+#     overall probe pass rate  0.892 -> 0.842
+#
+# The mechanism is in the data: all 23,453 Bitext training rows are "customer asks -> agent
+# helpfully assists", with no example of declining, so the model learned "always help".
+#
+# Two mitigations are applied and measured SEPARATELY, because they fail differently:
+#
+#   1. Guardrail training data (csbot.data.guardrails) -- changes the model. No runtime cost,
+#      but probabilistic: it shifts a tendency, it does not enforce a rule.
+#      Measured: +0.092 overall, 95% CI [+0.025, +0.158].
+#   2. This runtime layer -- enforces policy regardless of what the model does. Deterministic
+#      and auditable, but adds latency and can only act on what it can classify.
+#      Measured: +0.092 overall, 95% CI [+0.042, +0.142]. Together: +0.117.
+#
+# The separation was worth the effort. The FIRST version of this runtime layer measured as a net
+# NEGATIVE on top of the data fix (0.933 -> 0.892): it was diverting short, uninformative messages
+# like "Hi" and "when" to an off-topic redirect. A single combined before/after number would have
+# shown an overall gain and hidden that inside it. See WORKLOG 32.
+#
+# DESIGN CHOICE: dialog rails with predefined bot messages, not LLM self-check rails.
+# A self-check rail would put a second LLM call in front of every request, roughly doubling
+# latency on an already power-limited 8 GB card. Embedding-matched canonical forms plus canned
+# responses cost one local embedding lookup (fastembed, ONNX, CPU) and no generation at all.
+# Cheaper, far more predictable, and the refusal text is reviewable rather than generated.
+#
+# NOTE ON WHO GENERATES. Generation does not pass through NeMo. Pointing it at a recording
+# backend and sending one ordinary query produced THREE LLM calls, each with a prompt NeMo built
+# itself and padded with generic scaffolding -- which both triples latency and replaces the exact
+# template the model was fine-tuned and measured on. csbot.serve.guardrails therefore drives the
+# matching defined here and keeps generation on the canonical template.
+
+models:
+  # The application model. Guardrails talks to it through the same OpenAI-compatible endpoint
+  # the evaluation harness uses, so the rails layer cannot silently diverge from what is served.
+  - type: main
+    engine: openai
+    model: csbot
+    parameters:
+      base_url: http://127.0.0.1:8001/v1
+      api_key: not-needed
+
+  # Local ONNX embeddings for canonical-form matching. No network, no second GPU model.
+  - type: embeddings
+    engine: FastEmbed
+    model: BAAI/bge-small-en-v1.5
+
+rails:
+  input:
+    flows:
+      # A local embedding check, NOT `self check input`. I tried the built-in self-check rail
+      # first; tracing a request showed it runs before the dialog rails and issues its own LLM
+      # call on every message -- the second generation this design exists to avoid. On a
+      # power-limited 8 GB card that roughly doubles latency for every legitimate customer.
+      # Measured, then replaced with an embedding check that costs no generation at all.
+      - check in domain
+
+  dialog:
+    # Only run a user-intent match when the embedding score is confident. Below this the request
+    # falls through to the model, which is the safe default: a support bot that wrongly refuses a
+    # real customer is worse than one that occasionally answers something off-topic.
+    user_messages:
+      embeddings_only: True
+      embeddings_only_similarity_threshold: 0.76
+
+instructions:
+  - type: general
+    content: |
+      You are a customer support assistant. Reply accurately and helpfully in a professional,
+      empathetic tone. Never invent account details, order numbers, contact information or
+      policies you were not given.

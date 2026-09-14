@@ -1,0 +1,84 @@
+# The shipped model.
+#
+# granite-3.3-2b-instruct + LoRA on the Bitext customer-support data, variant D ("polished").
+#
+# HOW THE DATA VARIANT WAS ARRIVED AT. Four were built and measured; D is the one that ships.
+# Each fixed a defect the previous one was shown to have, on 2,370 held-out rows:
+#
+#   A  raw          the source untouched -- teaches the model to say "{{Order Number}}" to a
+#                   real customer
+#   B  substituted  fill the entities the customer's own message supplies. Entity recall
+#                   0.114 -> 0.643. But it deliberately LEFT the entities the customer cannot
+#                   supply as slots, so the model emitted them: 28.8% of replies showed a raw
+#                   {{Customer Support Phone Number}}. Fourteen automatic metrics missed this;
+#                   a human labelling twenty blind pairs found it.
+#   C  grounded     map every remaining slot to the honest generic phrase it stands for --
+#                   "the number listed in your account area", never an invented value.
+#                   Leak 28.8% -> 0.5%, hygiene 0.712 -> 0.989.
+#   D  polished     repair the source register. A human and a validated LLM judge both preferred
+#                   the BASE model's answers, and the transcripts showed why: opening tics
+#                   ("I'm on the same page, your concern about..."), thesaurus-speak ("I'm
+#                   clearly cognizant that"), promises to perform lookups the model cannot
+#                   perform. Rewritten in place, not filtered -- filtering to clean rows costs
+#                   14 of 27 intents. Opener tics 23.6% -> 0.0% of generated answers.
+#
+# See csbot.data.placeholders and csbot.data.quality; reports/ holds the numbers.
+#
+# WHAT THIS DOES NOT FIX, stated because it is the main result. Median response length is 466
+# characters against the base model's 789, and preference still favours base. `substantive_upsample`
+# below was the attempt at it and did not work: the model learns p(response | instruction), so
+# duplicating long answers to OTHER questions does not lengthen the target for THIS one.
+# Fine-tuning on this dataset cannot raise overall answer quality, because the gold responses
+# themselves lose to the base model when judged blind. Run
+# scripts/check_targets_beat_base.py before trusting any SFT run on any dataset.
+#
+# scope=final trains on all 27 intents, so the held-out-intent slice is NOT held out for this
+# model and is not reported as a generalisation claim.
+
+model_key: granite-3.3-2b      # funnel winner: best rank on every surviving metric
+run_name: final-polished
+output_dir: artifacts/runs
+
+data:
+  variant: polished          # ablation arm D -- see below
+  substantive_upsample: 2    # duplicate the rows that walk a customer through
+                             # something; the judge penalised thin replies and no
+                             # rewrite can add substance that was never there
+  guardrail_examples: 1235   # 5.0% of the blend, the exact ratio validated by the pilot
+                             # (337/6735). The pilot moved redirects_off_topic 0.350 -> 0.850
+                             # with no in-domain cost: val loss 0.6461 vs 0.6436 for the matched
+                             # control. See scripts/probe_ab.py and WORKLOG 32.         # ablation arm B; the raw arm runs as final-raw
+  scope: final
+  max_train_rows: null         # all of it
+  max_seq_len: 640             # p99 446-485, max 580 across tokenizers
+
+# QLoRA to TRAIN (bf16 needs 8.4 GB, we have 8.0). The adapter merges into the full-precision
+# base afterwards, so what ships is an ordinary bf16 checkpoint - granite serves in 7.5 GB.
+load_in_4bit: true
+
+lora:
+  r: 16
+  dropout: 0.05
+
+learning_rate: 2.0e-4
+epochs: 1.0                    # 24,688 rows / batch 32 = 772 steps, ~2.4 h at the measured
+                               # 11.2 s/step. Overfitting risk is high with ~1000 paraphrases per
+                               # intent, and the pilot already reached intent 0.900 in 200 steps;
+                               # the validation curve is the evidence for whether more would help.
+max_steps: 600                 # 71% of an epoch over the 30k upsampled rows -- 22,400 examples,
+                               # comparable to the 24,704 the earlier one-epoch runs saw. Capped
+                               # because the upsampled rows are the long ones, so this run costs
+                               # ~16.7 s/step against ~10.5, and the previous runs' validation
+                               # loss had flattened by ~90% of training anyway.
+per_device_batch_size: 4
+gradient_accumulation_steps: 8 # effective batch 32
+warmup_ratio: 0.03
+lr_scheduler_type: cosine
+max_grad_norm: 1.0
+
+eval_steps: 100
+logging_steps: 20
+save_steps: 100        # <= total steps, so a long run is resumable after a crash
+eval_rows: 400
+sample_generations: 8
+seed: 17

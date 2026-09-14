@@ -1,0 +1,245 @@
+{
+  "n_pairs": 40,
+  "gate": {
+    "min_control_accuracy": 0.8,
+    "max_flip_rate": 0.3,
+    "max_unparsed": 0.1
+  },
+  "judges": {
+    "Qwen/Qwen3.5-4B": {
+      "passed_gate": false,
+      "control_accuracy": 0.0,
+      "n_control_decided": 0,
+      "flip_rate": 0.25,
+      "unparsed_rate": 0.0,
+      "decided": 90,
+      "human_agreement": null,
+      "n_comparable_with_human": 0,
+      "preference": {
+        "resolution": {
+          "fine_tuned": 3,
+          "base": 27,
+          "tie": 0,
+          "flip": 10,
+          "unparsed": 0
+        },
+        "tone": {
+          "fine_tuned": 4,
+          "base": 25,
+          "tie": 0,
+          "flip": 11,
+          "unparsed": 0
+        },
+        "grounding": {
+          "fine_tuned": 2,
+          "base": 29,
+          "tie": 0,
+          "flip": 9,
+          "unparsed": 0
+        }
+      },
+      "verdicts": {
+        "1": {
+          "resolution": "B",
+          "tone": "B",
+          "grounding": "B"
+        },
+        "2": {
+          "resolution": "B",
+          "tone": "B",
+          "grounding": "B"
+        },
+        "3": {
+          "resolution": "A",
+          "tone": "A",
+          "grounding": "A"
+        },
+        "4": {
+          "resolution": "B",
+          "tone": "B",
+          "grounding": "B"
+        },
+        "5": {
+          "resolution": "FLIP",
+          "tone": "FLIP",
+          "grounding": "FLIP"
+        },
+        "6": {
+          "resolution": "B",
+          "tone": "B",
+          "grounding": "B"
+        },
+        "7": {
+          "resolution": "B",
+          "tone": "B",
+          "grounding": "B"
+        },
+        "8": {
+          "resolution": "B",
+          "tone": "B",
+          "grounding": "B"
+        },
+        "9": {
+          "resolution": "B",
+          "tone": "B",
+          "grounding": "B"
+        },
+        "10": {
+          "resolution": "A",
+          "tone": "A",
+          "grounding": "FLIP"
+        },
+        "11": {
+          "resolution": "A",
+          "tone": "A",
+          "grounding": "A"
+        },
+        "12": {
+          "resolution": "B",
+          "tone": "FLIP",
+          "grounding": "B"
+        },
+        "13": {
+          "resolution": "FLIP",
+          "tone": "FLIP",
+          "grounding": "B"
+        },
+        "14": {
+          "resolution": "FLIP",
+          "tone": "A",
+          "grounding": "A"
+        },
+        "15": {
+          "resolution": "FLIP",
+          "tone": "A",
+          "grounding": "FLIP"
+        },
+        "16": {
+          "resolution": "B",
+          "tone": "B",
+          "grounding": "FLIP"
+        },
+        "17": {
+          "resolution": "A",
+          "tone": "FLIP",
+          "grounding": "FLIP"
+        },
+        "18": {
+          "resolution": "FLIP",
+          "tone": "FLIP",
+          "grounding": "B"
+        },
+        "19": {
+          "resolution": "B",
+          "tone": "B",
+          "grounding": "B"
+        },
+        "20": {
+          "resolution": "FLIP",
+          "tone": "FLIP",
+          "grounding": "FLIP"
+        },
+        "21": {
+          "resolution": "B",
+          "tone": "B",
+          "grounding": "B"
+        },
+        "22": {
+          "resolution": "FLIP",
+          "tone": "FLIP",
+          "grounding": "B"
+        },
+        "23": {
+          "resolution": "A",
+          "tone": "A",
+          "grounding": "A"
+        },
+        "24": {
+          "resolution": "FLIP",
+          "tone": "FLIP",
+          "grounding": "B"
+        },
+        "25": {
+          "resolution": "A",
+          "tone": "A",
+          "grounding": "A"
+        },
+        "26": {
+          "resolution": "B",
+          "tone": "B",
+          "grounding": "A"
+        },
+        "27": {
+          "resolution": "A",
+          "tone": "A",
+          "grounding": "A"
+        },
+        "28": {
+          "resolution": "A",
+          "tone": "A",
+          "grounding": "A"
+        },
+        "29": {
+          "resolution": "A",
+          "tone": "A",
+          "grounding": "A"
+        },
+        "30": {
+          "resolution": "A",
+          "tone": "A",
+          "grounding": "A"
+        },
+        "31": {
+          "resolution": "A",
+          "tone": "A",
+          "grounding": "A"
+        },
+        "32": {
+          "resolution": "FLIP",
+          "tone": "FLIP",
+          "grounding": "A"
+        },
+        "33": {
+          "resolution": "B",
+          "tone": "B",
+          "grounding": "B"
+        },
+        "34": {
+          "resolution": "B",
+          "tone": "B",
+          "grounding": "B"
+        },
+        "35": {
+          "resolution": "B",
+          "tone": "B",
+          "grounding": "B"
+        },
+        "36": {
+          "resolution": "FLIP",
+          "tone": "FLIP",
+          "grounding": "FLIP"
+        },
+        "37": {
+          "resolution": "A",
+          "tone": "FLIP",
+          "grounding": "A"
+        },
+        "38": {
+          "resolution": "A",
+          "tone": "A",
+          "grounding": "FLIP"
+        },
+        "39": {
+          "resolution": "B",
+          "tone": "B",
+          "grounding": "FLIP"
+        },
+        "40": {
+          "resolution": "A",
+          "tone": "A",
+          "grounding": "A"
+        }
+      }
+    }
+  }
+}

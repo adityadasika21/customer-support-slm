@@ -1,0 +1,322 @@
+[
+  {
+    "item": 1,
+    "group": "random",
+    "id": "18037",
+    "intent": "payment_issue",
+    "a": "fine_tuned",
+    "b": "base"
+  },
+  {
+    "item": 2,
+    "group": "random",
+    "id": "8946",
+    "intent": "contact_human_agent",
+    "a": "base",
+    "b": "fine_tuned"
+  },
+  {
+    "item": 3,
+    "group": "random",
+    "id": "26054",
+    "intent": "track_refund",
+    "a": "base",
+    "b": "fine_tuned"
+  },
+  {
+    "item": 4,
+    "group": "random",
+    "id": "26418",
+    "intent": "track_refund",
+    "a": "fine_tuned",
+    "b": "base"
+  },
+  {
+    "item": 5,
+    "group": "random",
+    "id": "25276",
+    "intent": "track_order",
+    "a": "base",
+    "b": "fine_tuned"
+  },
+  {
+    "item": 6,
+    "group": "random",
+    "id": "16050",
+    "intent": "get_refund",
+    "a": "fine_tuned",
+    "b": "base"
+  },
+  {
+    "item": 7,
+    "group": "random",
+    "id": "5358",
+    "intent": "check_payment_methods",
+    "a": "fine_tuned",
+    "b": "base"
+  },
+  {
+    "item": 8,
+    "group": "random",
+    "id": "12107",
+    "intent": "delivery_options",
+    "a": "fine_tuned",
+    "b": "base"
+  },
+  {
+    "item": 9,
+    "group": "random",
+    "id": "6242",
+    "intent": "check_refund_policy",
+    "a": "fine_tuned",
+    "b": "base"
+  },
+  {
+    "item": 10,
+    "group": "random",
+    "id": "18156",
+    "intent": "payment_issue",
+    "a": "base",
+    "b": "fine_tuned"
+  },
+  {
+    "item": 11,
+    "group": "random",
+    "id": "364",
+    "intent": "cancel_order",
+    "a": "base",
+    "b": "fine_tuned"
+  },
+  {
+    "item": 12,
+    "group": "random",
+    "id": "15249",
+    "intent": "get_invoice",
+    "a": "fine_tuned",
+    "b": "base"
+  },
+  {
+    "item": 13,
+    "group": "random",
+    "id": "13248",
+    "intent": "delivery_period",
+    "a": "fine_tuned",
+    "b": "base"
+  },
+  {
+    "item": 14,
+    "group": "random",
+    "id": "8021",
+    "intent": "contact_customer_service",
+    "a": "base",
+    "b": "fine_tuned"
+  },
+  {
+    "item": 15,
+    "group": "random",
+    "id": "9708",
+    "intent": "contact_human_agent",
+    "a": "fine_tuned",
+    "b": "base"
+  },
+  {
+    "item": 16,
+    "group": "random",
+    "id": "12747",
+    "intent": "delivery_options",
+    "a": "fine_tuned",
+    "b": "base"
+  },
+  {
+    "item": 17,
+    "group": "random",
+    "id": "1067",
+    "intent": "change_order",
+    "a": "base",
+    "b": "fine_tuned"
+  },
+  {
+    "item": 18,
+    "group": "random",
+    "id": "23689",
+    "intent": "set_up_shipping_address",
+    "a": "fine_tuned",
+    "b": "base"
+  },
+  {
+    "item": 19,
+    "group": "random",
+    "id": "11260",
+    "intent": "delete_account",
+    "a": "fine_tuned",
+    "b": "base"
+  },
+  {
+    "item": 20,
+    "group": "random",
+    "id": "846",
+    "intent": "cancel_order",
+    "a": "base",
+    "b": "fine_tuned"
+  },
+  {
+    "item": 21,
+    "group": "random",
+    "id": "566",
+    "intent": "cancel_order",
+    "a": "fine_tuned",
+    "b": "base"
+  },
+  {
+    "item": 22,
+    "group": "random",
+    "id": "19342",
+    "intent": "place_order",
+    "a": "base",
+    "b": "fine_tuned"
+  },
+  {
+    "item": 23,
+    "group": "random",
+    "id": "26275",
+    "intent": "track_refund",
+    "a": "base",
+    "b": "fine_tuned"
+  },
+  {
+    "item": 24,
+    "group": "random",
+    "id": "25534",
+    "intent": "track_order",
+    "a": "fine_tuned",
+    "b": "base"
+  },
+  {
+    "item": 25,
+    "group": "random",
+    "id": "9937",
+    "intent": "create_account",
+    "a": "base",
+    "b": "fine_tuned"
+  },
+  {
+    "item": 26,
+    "group": "random",
+    "id": "24909",
+    "intent": "track_order",
+    "a": "base",
+    "b": "fine_tuned"
+  },
+  {
+    "item": 27,
+    "group": "random",
+    "id": "21421",
+    "intent": "registration_problems",
+    "a": "base",
+    "b": "fine_tuned"
+  },
+  {
+    "item": 28,
+    "group": "random",
+    "id": "6702",
+    "intent": "check_refund_policy",
+    "a": "base",
+    "b": "fine_tuned"
+  },
+  {
+    "item": 29,
+    "group": "random",
+    "id": "4839",
+    "intent": "check_invoice",
+    "a": "base",
+    "b": "fine_tuned"
+  },
+  {
+    "item": 30,
+    "group": "random",
+    "id": "7312",
+    "intent": "complaint",
+    "a": "base",
+    "b": "fine_tuned"
+  },
+  {
+    "item": 31,
+    "group": "random",
+    "id": "14994",
+    "intent": "get_invoice",
+    "a": "base",
+    "b": "fine_tuned"
+  },
+  {
+    "item": 32,
+    "group": "random",
+    "id": "22169",
+    "intent": "review",
+    "a": "base",
+    "b": "fine_tuned"
+  },
+  {
+    "item": 33,
+    "group": "random",
+    "id": "19123",
+    "intent": "place_order",
+    "a": "fine_tuned",
+    "b": "base"
+  },
+  {
+    "item": 34,
+    "group": "random",
+    "id": "14236",
+    "intent": "edit_account",
+    "a": "fine_tuned",
+    "b": "base"
+  },
+  {
+    "item": 35,
+    "group": "random",
+    "id": "19908",
+    "intent": "recover_password",
+    "a": "fine_tuned",
+    "b": "base"
+  },
+  {
+    "item": 36,
+    "group": "random",
+    "id": "104",
+    "intent": "cancel_order",
+    "a": "base",
+    "b": "fine_tuned"
+  },
+  {
+    "item": 37,
+    "group": "random",
+    "id": "25116",
+    "intent": "track_order",
+    "a": "base",
+    "b": "fine_tuned"
+  },
+  {
+    "item": 38,
+    "group": "random",
+    "id": "20905",
+    "intent": "registration_problems",
+    "a": "base",
+    "b": "fine_tuned"
+  },
+  {
+    "item": 39,
+    "group": "random",
+    "id": "5207",
+    "intent": "check_payment_methods",
+    "a": "base",
+    "b": "fine_tuned"
+  },
+  {
+    "item": 40,
+    "group": "random",
+    "id": "9860",
+    "intent": "contact_human_agent",
+    "a": "base",
+    "b": "fine_tuned"
+  }
+]

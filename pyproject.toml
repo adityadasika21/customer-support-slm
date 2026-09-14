@@ -1,0 +1,31 @@
+[project]
+name = "csbot"
+version = "0.1.0"
+description = "Fine-tune and self-host a small language model for customer support"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "torch>=2.7",
+    "transformers>=4.53",
+    "peft>=0.14",
+    "trl>=0.15",
+    "datasets>=3.2",
+    "accelerate>=1.3",
+    "pandas>=2.2",
+    "numpy>=1.26",
+    "scikit-learn>=1.5",
+    "matplotlib>=3.9",
+    "huggingface-hub>=0.28",
+    "pyyaml>=6.0",
+    "tqdm>=4.66",
+]
+
+[project.optional-dependencies]
+eval = ["rouge-score>=0.1.2", "bert-score>=0.3.13", "sacrebleu>=2.4", "scipy>=1.14"]
+serve = ["fastapi>=0.115", "uvicorn[standard]>=0.34", "httpx>=0.28"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/csbot"]

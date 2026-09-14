@@ -1,0 +1,26 @@
+{
+  "qwen_base": {
+    "hygiene_clean": 0.8633333333333333,
+    "placeholder_leak": 0.0033333333333333335,
+    "entity_recall": 0.6595744680851063,
+    "intent_correct": 0.72,
+    "rouge_l": 0.21970670814716925,
+    "refusal": 0.12,
+    "truncated": 0.013333333333333334,
+    "n_hallucinated": 0.05,
+    "median_chars": 521.5,
+    "seconds": 26.1
+  },
+  "their_finetune": {
+    "hygiene_clean": 0.68,
+    "placeholder_leak": 0.32,
+    "entity_recall": 0.0,
+    "intent_correct": 0.92,
+    "rouge_l": 0.393520550737855,
+    "refusal": 0.0,
+    "truncated": 0.0,
+    "n_hallucinated": 0.0033333333333333335,
+    "median_chars": 464.0,
+    "seconds": 22.4
+  }
+}

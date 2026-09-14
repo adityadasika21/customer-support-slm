@@ -1,0 +1,43 @@
+# The template + guardrail layer that sits in front of vLLM.
+#
+# Deliberately CPU-only: the guardrails are local ONNX embeddings (fastembed) and the FastAPI
+# layer never generates. All GPU work happens in the vllm service, so this image stays small and
+# the two scale independently.
+
+FROM python:3.12-slim
+
+ENV PYTHONUNBUFFERED=1 \
+    PIP_NO_CACHE_DIR=1 \
+    PYTHONPATH=/app/src
+
+WORKDIR /app
+
+RUN apt-get update \
+ && apt-get install -y --no-install-recommends curl \
+ && rm -rf /var/lib/apt/lists/*
+
+# Install the runtime set EXPLICITLY, then the package with --no-deps.
+#
+# `pip install .[serve]` would drag in the project's base dependencies -- torch, trl, datasets,
+# accelerate -- because they are needed for training and evaluation. None of them run here: this
+# service renders a prompt template, runs local ONNX embeddings for the guardrails, and proxies
+# to vLLM. torch is imported lazily and only by the in-process engine, which this image never
+# uses. Pulling them anyway would turn a ~1 GB image into a ~6 GB one for no behaviour.
+RUN pip install --no-cache-dir \
+      "fastapi>=0.115" "uvicorn[standard]>=0.34" "httpx>=0.28" "pydantic>=2" \
+      "transformers>=4.53" "tokenizers>=0.20" \
+      "numpy>=1.26" "pyyaml>=6.0" \
+      "nemoguardrails>=0.24" "fastembed>=0.4"
+
+COPY pyproject.toml README.md ./
+COPY src/ ./src/
+RUN pip install --no-cache-dir --no-deps .
+
+# The guardrail policy: Colang rails, thresholds, and the frozen in-domain anchor set.
+COPY guardrails/ ./guardrails/
+
+EXPOSE 8000
+HEALTHCHECK --interval=15s --timeout=5s --retries=20 --start-period=90s \
+  CMD curl -fsS http://localhost:8000/health || exit 1
+
+CMD ["uvicorn", "csbot.serve.app:app", "--host", "0.0.0.0", "--port", "8000"]

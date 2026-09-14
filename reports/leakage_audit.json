@@ -1,0 +1,234 @@
+{
+  "cluster_disjointness": {
+    "n_clusters": 3689,
+    "clusters_spanning_splits": 0,
+    "leak_free": true,
+    "offending_cluster_ids": []
+  },
+  "cluster_profile": {
+    "n_clusters": 3689,
+    "rows_per_cluster_mean": 7.2843589048522634,
+    "largest": 963,
+    "singletons": 2853,
+    "size_percentiles": {
+      "p50": 1,
+      "p90": 3,
+      "p99": 85
+    },
+    "largest_clusters": [
+      {
+        "cluster_id": 2274,
+        "size": 963,
+        "intent": "newsletter_subscription"
+      },
+      {
+        "cluster_id": 3407,
+        "size": 952,
+        "intent": "set_up_shipping_address"
+      },
+      {
+        "cluster_id": 3455,
+        "size": 947,
+        "intent": "switch_account"
+      },
+      {
+        "cluster_id": 1063,
+        "size": 946,
+        "intent": "contact_customer_service"
+      },
+      {
+        "cluster_id": 804,
+        "size": 931,
+        "intent": "check_payment_methods"
+      }
+    ]
+  },
+  "test_vs_train": {
+    "n_compared": 2370,
+    "max": 0.7999999999999995,
+    "mean": 0.7173081083360497,
+    "percentiles": {
+      "p50": 0.741488487806458,
+      "p90": 0.7919767547902526,
+      "p99": 0.7991172373974812
+    },
+    "n_above_alarm": 0,
+    "alarm_threshold": 0.8,
+    "worst_pairs": [
+      {
+        "intent": "newsletter_subscription",
+        "similarity": 0.7999999999999995,
+        "test_instruction": "canceling subscription to ur company newletter",
+        "train_instruction": "cancel the subscription to ur company newsletter",
+        "test_cluster": 2297,
+        "train_cluster": 2274
+      },
+      {
+        "intent": "recover_password",
+        "similarity": 0.7999999999999992,
+        "test_instruction": "I need sasistance recovering the PIN of my profile",
+        "train_instruction": "need help recovering the pin of my profile",
+        "test_cluster": 2887,
+        "train_cluster": 2869
+      },
+      {
+        "intent": "review",
+        "similarity": 0.7999999999999992,
+        "test_instruction": "do you have an address to send some feedback?",
+        "train_instruction": "do you have an address to send my feedback for a product?",
+        "test_cluster": 3177,
+        "train_cluster": 3178
+      },
+      {
+        "intent": "delete_account",
+        "similarity": 0.7999999999999989,
+        "test_instruction": "removing standard acconut",
+        "train_instruction": "removing standard account",
+        "test_cluster": 1444,
+        "train_cluster": 1434
+      },
+      {
+        "intent": "check_payment_methods",
+        "similarity": 0.7999999999999985,
+        "test_instruction": "wanna see ur available payment metods i need assistance",
+        "train_instruction": "I need assistance to see your available payment methods",
+        "test_cluster": 858,
+        "train_cluster": 804
+      },
+      {
+        "intent": "contact_human_agent",
+        "similarity": 0.7999564988826061,
+        "test_instruction": "I do not know how to speak to somebody",
+        "train_instruction": "i do not know what i need to do to speak with somebody",
+        "test_cluster": 1206,
+        "train_cluster": 1122
+      },
+      {
+        "intent": "delivery_options",
+        "similarity": 0.7999199123271095,
+        "test_instruction": "want assistance seeing the delivery options",
+        "train_instruction": "assistance seeing what options for delivery are there",
+        "test_cluster": 1604,
+        "train_cluster": 1539
+      },
+      {
+        "intent": "delivery_options",
+        "similarity": 0.7998850071873418,
+        "test_instruction": "can i place a  fucking order from {{Delivery City}}",
+        "train_instruction": "can I place an order from {{Delivery City}}?",
+        "test_cluster": 1609,
+        "train_cluster": 1544
+      },
+      {
+        "intent": "get_invoice",
+        "similarity": 0.7998782076139637,
+        "test_instruction": "I need to download the invoice #00108, how can I do it?",
+        "train_instruction": "i dont know what i need to do to download the invoice #00108",
+        "test_cluster": 1915,
+        "train_cluster": 1878
+      },
+      {
+        "intent": "recover_password",
+        "similarity": 0.7998724429656754,
+        "test_instruction": "i dont know how i can reset my profile pin code",
+        "train_instruction": "i dont know how i could reset the pin of my profile",
+        "test_cluster": 2980,
+        "train_cluster": 2723
+      },
+      {
+        "intent": "set_up_shipping_address",
+        "similarity": 0.7998620931517781,
+        "test_instruction": "there are troubles submitting another delivery address",
+        "train_instruction": "there is a trouble setting another delivery address up",
+        "test_cluster": 3439,
+        "train_cluster": 3407
+      },
+      {
+        "intent": "place_order",
+        "similarity": 0.7998094816106837,
+        "test_instruction": "I do not know how I can earn some products",
+        "train_instruction": "I do not know what to do to earn some products",
+        "test_cluster": 2614,
+        "train_cluster": 2460
+      },
+      {
+        "intent": "complaint",
+        "similarity": 0.7998072754168342,
+        "test_instruction": "I am unhappy with your services, help filing a claim",
+        "train_instruction": "I ain't happy with your service, I want help filing a claim",
+        "test_cluster": 974,
+        "train_cluster": 992
+      },
+      {
+        "intent": "get_refund",
+        "similarity": 0.7998026851850274,
+        "test_instruction": "where do I receive a refund of my money?",
+        "train_instruction": "I need to receive a refund of my money",
+        "test_cluster": 2055,
+        "train_cluster": 2045
+      },
+      {
+        "intent": "change_order",
+        "similarity": 0.7996201716206928,
+        "test_instruction": "need to add an item to purchase {{Order Number}} could ya help m",
+        "train_instruction": "help me add an item to purchase {{Order Number}}",
+        "test_cluster": 260,
+        "train_cluster": 122
+      }
+    ]
+  },
+  "val_vs_train": {
+    "n_compared": 1049,
+    "max": 0.7999999999999989,
+    "mean": 0.7177229240584602,
+    "percentiles": {
+      "p50": 0.7416198487095668,
+      "p90": 0.7912655159109225,
+      "p99": 0.7991492878789489
+    },
+    "n_above_alarm": 0,
+    "alarm_threshold": 0.8,
+    "worst_pairs": [
+      {
+        "intent": "get_invoice",
+        "similarity": 0.7999999999999989,
+        "val_instruction": "canuhelp me to get the bills from {{Person Name}}",
+        "train_instruction": "can you help me to get the bills from {{Person Name}}?",
+        "val_cluster": 1995,
+        "train_cluster": 1878
+      },
+      {
+        "intent": "create_account",
+        "similarity": 0.7996709849747746,
+        "val_instruction": "nmeed help opening a premium account",
+        "train_instruction": "opening new premium account",
+        "val_cluster": 1338,
+        "train_cluster": 1318
+      },
+      {
+        "intent": "get_refund",
+        "similarity": 0.7995968600056597,
+        "val_instruction": "need help requesting restitutions of my money",
+        "train_instruction": "help me request damn restitutions of money",
+        "val_cluster": 2037,
+        "train_cluster": 2019
+      },
+      {
+        "intent": "place_order",
+        "similarity": 0.7995900589021109,
+        "val_instruction": "shopping article",
+        "train_instruction": "I want help shopping an article",
+        "val_cluster": 2420,
+        "train_cluster": 2425
+      },
+      {
+        "intent": "delivery_options",
+        "similarity": 0.7995437699978408,
+        "val_instruction": "I would like to check the fucking delivery methods, help me",
+        "train_instruction": "I would like to check the delivery methods, how to do it?",
+        "val_cluster": 1614,
+        "train_cluster": 1566
+      }
+    ]
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "sweep": [
+    {
+      "threshold": 0.72,
+      "n_clusters": 782,
+      "largest_cluster": 998,
+      "rows_per_cluster": 34.36,
+      "max_xsplit_sim": 0.7198,
+      "test_rows": 1211,
+      "test_intents": "27/27",
+      "min_intent_rows": 2,
+      "intents_under_30": 11,
+      "train_rows": 25355
+    },
+    {
+      "threshold": 0.75,
+      "n_clusters": 1466,
+      "largest_cluster": 992,
+      "rows_per_cluster": 18.33,
+      "max_xsplit_sim": 0.75,
+      "test_rows": 1835,
+      "test_intents": "27/27",
+      "min_intent_rows": 7,
+      "intents_under_30": 5,
+      "train_rows": 24341
+    },
+    {
+      "threshold": 0.78,
+      "n_clusters": 2572,
+      "largest_cluster": 988,
+      "rows_per_cluster": 10.45,
+      "max_xsplit_sim": 0.78,
+      "test_rows": 2201,
+      "test_intents": "27/27",
+      "min_intent_rows": 11,
+      "intents_under_30": 3,
+      "train_rows": 23719
+    },
+    {
+      "threshold": 0.8,
+      "n_clusters": 3689,
+      "largest_cluster": 963,
+      "rows_per_cluster": 7.28,
+      "max_xsplit_sim": 0.8,
+      "test_rows": 2370,
+      "test_intents": "27/27",
+      "min_intent_rows": 36,
+      "intents_under_30": 0,
+      "train_rows": 23453
+    },
+    {
+      "threshold": 0.82,
+      "n_clusters": 5164,
+      "largest_cluster": 916,
+      "rows_per_cluster": 5.2,
+      "max_xsplit_sim": 0.82,
+      "test_rows": 2527,
+      "test_intents": "27/27",
+      "min_intent_rows": 60,
+      "intents_under_30": 0,
+      "train_rows": 23154
+    },
+    {
+      "threshold": 0.85,
+      "n_clusters": 8471,
+      "largest_cluster": 577,
+      "rows_per_cluster": 3.17,
+      "max_xsplit_sim": 0.85,
+      "test_rows": 2682,
+      "test_intents": "27/27",
+      "min_intent_rows": 94,
+      "intents_under_30": 0,
+      "train_rows": 22849
+    },
+    {
+      "threshold": 0.88,
+      "n_clusters": 12628,
+      "largest_cluster": 284,
+      "rows_per_cluster": 2.13,
+      "max_xsplit_sim": 0.88,
+      "test_rows": 2688,
+      "test_intents": "27/27",
+      "min_intent_rows": 95,
+      "intents_under_30": 0,
+      "train_rows": 22837
+    },
+    {
+      "threshold": 0.9,
+      "n_clusters": 15673,
+      "largest_cluster": 161,
+      "rows_per_cluster": 1.71,
+      "max_xsplit_sim": 0.9,
+      "test_rows": 2688,
+      "test_intents": "27/27",
+      "min_intent_rows": 95,
+      "intents_under_30": 0,
+      "train_rows": 22837
+    }
+  ],
+  "details": {
+    "0.72": {
+      "max_cross_split_sim": 0.7197701639122728,
+      "mean_cross_split_sim": 0.6032407591506967,
+      "p99_cross_split_sim": 0.7191159805901094,
+      "n_test_rows_above_alarm": 0
+    },
+    "0.75": {
+      "max_cross_split_sim": 0.7499948013573136,
+      "mean_cross_split_sim": 0.6435808575897098,
+      "p99_cross_split_sim": 0.7486435545950914,
+      "n_test_rows_above_alarm": 0
+    },
+    "0.78": {
+      "max_cross_split_sim": 0.7799934341229761,
+      "mean_cross_split_sim": 0.6821997286741012,
+      "p99_cross_split_sim": 0.7789844247287796,
+      "n_test_rows_above_alarm": 0
+    },
+    "0.8": {
+      "max_cross_split_sim": 0.7999999999999995,
+      "mean_cross_split_sim": 0.7173081083360497,
+      "p99_cross_split_sim": 0.7991172373974812,
+      "n_test_rows_above_alarm": 0
+    },
+    "0.82": {
+      "max_cross_split_sim": 0.8199901220912248,
+      "mean_cross_split_sim": 0.7413155217837233,
+      "p99_cross_split_sim": 0.81902636204065,
+      "n_test_rows_above_alarm": 524
+    },
+    "0.85": {
+      "max_cross_split_sim": 0.8499999999999988,
+      "mean_cross_split_sim": 0.7833998688200101,
+      "p99_cross_split_sim": 0.8493591263113737,
+      "n_test_rows_above_alarm": 1336
+    },
+    "0.88": {
+      "max_cross_split_sim": 0.8799999999999989,
+      "mean_cross_split_sim": 0.8085318856055533,
+      "p99_cross_split_sim": 0.8788505513879799,
+      "n_test_rows_above_alarm": 1747
+    },
+    "0.9": {
+      "max_cross_split_sim": 0.8999999999999988,
+      "mean_cross_split_sim": 0.828811317978144,
+      "p99_cross_split_sim": 0.8990050669413089,
+      "n_test_rows_above_alarm": 1989
+    }
+  }
+}
